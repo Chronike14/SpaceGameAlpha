@@ -19,6 +19,7 @@ C: (Checking a clipboard along with her cockpit display, talking to herself) Okâ
 === ship ===
 
 + Dorm Hallway
+This is a long hallway with 6 dorms lined along the left side.
     ++ Cpnt. Rebecca's Room
     -> rebecca_room
     ++ Willy Richardson's Room
