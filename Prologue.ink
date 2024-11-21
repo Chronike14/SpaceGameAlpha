@@ -21,6 +21,11 @@ C: (Checking a clipboard along with her cockpit display, talking to herself) Okâ
 
 + Dorm Hallway
 -> dorms_hall
++ Commons Hallway
+-> commons_hall
++ Lab Hallway
+-> labs_hall
+
 === dorms_hall ===
 This is a long hallway with 6 dorm rooms along the left side.
 + Cpnt. Rebecca's Room
@@ -36,8 +41,6 @@ This is a long hallway with 6 dorm rooms along the left side.
 + Ridan Tyndale's Room
     -> rooms.ridan
 
-+ Commons Hallway
--> commons_hall
 === commons_hall ===
 + Commons Room
     -> commons.room
@@ -57,7 +60,6 @@ This is a long hallway with 6 dorm rooms along the left side.
     -> labs.botany
 + Zoology Lab
     -> labs.zoology
-
 
 === rooms ===
 = rebecca
