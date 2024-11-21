@@ -25,6 +25,8 @@ C: (Checking a clipboard along with her cockpit display, talking to herself) Ok�
 -> commons_hall
 + Lab Hallway
 -> labs_hall
++ Open Tech Pad
+-> mission
 
 === dorms_hall ===
 This is a long hallway with 6 dorm rooms along the left side.
@@ -40,6 +42,8 @@ This is a long hallway with 6 dorm rooms along the left side.
     -> rooms.lars
 + Ridan Tyndale's Room
     -> rooms.ridan
++ [Back]
+    -> ship
 
 === commons_hall ===
 + Commons Room
@@ -48,9 +52,9 @@ This is a long hallway with 6 dorm rooms along the left side.
     -> commons.kitchen
 + Cargo Bay
     -> commons.cargobay
-    
-+ Lab Hallway
--> labs_hall
++ [Back]
+    -> ship
+
 === labs_hall ===
 + Doctors Office
     -> labs.doctor
@@ -60,6 +64,8 @@ This is a long hallway with 6 dorm rooms along the left side.
     -> labs.botany
 + Zoology Lab
     -> labs.zoology
++ [Back]
+    -> ship
 
 === rooms ===
 = rebecca
@@ -145,9 +151,10 @@ Common Room: Open. Unoccupied.
 Rebecca walks into the common room. With everyone still working hard getting prepared for the trip ahead of them, the common room remains untouched and empty by the members of the crew. There’s a large, red couch sitting on one of the walls with a flatscreen TV amplified to work in the depths of space hanging on the opposite wall. There’s a coffee table in between the two stacked with various magazines, lined with coasters, and the remote for the TV sitting on the edge. There are a few other arm chairs off the heads of the coffee table and an end table on either end of the couch, both completely empty except for a lamp on one. Rebecca ensures that all the furniture in the room is bolted to the floor so that it doesn’t move with the turbulence of the ship.
 
 C: Everything looks nice and secure! I really hope that we can spend some time together as a crew here!
+
 + Bathrooms
 -> bathroom
-+ [Leave]
++ [Back]
 -> commons_hall
 
 = bathroom
@@ -155,7 +162,8 @@ Bathrooms: Open.
 In the bathrooms, Rebecca had walked in to see three stalls, three sinks, and three showers allowing for half the crew to use any specific part of the bathroom at any time. The bathrooms were not split by gender and were communal for all members of the crew. The interior was a very reflective white marble appearance with bright lighting illuminating every inch of the room. The center of the room was decently spacious with a bench in the middle of the room for those using the various features. 
 
 C: There’s nothin’ in here that I need to check.
-+ Leave
+
++ [Back]
 -> commons_hall
 
 = kitchen
@@ -163,7 +171,7 @@ Kitchen: Open. Unoccupied.
 Rebecca ventures into the kitchen. It has brand new chrome appliances that were replaced just before this crew was chosen for the research mission. There’s a large fridge stocked with years worth of food thanks to enhanced technology. There are three ovens and stoves lining the wall with smoke hoods over each. There’s a large metallic shelf on one end of the kitchen stacked with pots, pans, plates, utensils, and every other dish imaginable. On the counter, there were other appliances including toasters, air fryers, and fabricators capable of creating small dishes from thin air. There was also a large wooden table with 6 chairs surrounding it. Rebecca went through and ensured that everything was stabilized in place to keep it from shifting as the ship flew around.
 
 C: Unfortunate that we couldn’t get a chef on this expedition. Maybe I can convince someone else in the crew to cook for me.
-+ [Leave]
++ [Back]
 -> commons_hall
 
 = cargobay
@@ -176,11 +184,12 @@ W: Everything’s fine over here! I saw how disorganized everything in here was 
 
 C: I hope it isn’t too much trouble! There’s a lot of supplies in here so don’t overwork yourself on the first day either!
 
-Need an option to speak to the crew member and some dialog options here to learn some basic stuff about Willy.
--> DONE
+//Need an option to speak to the crew member and some dialog options here to learn some basic stuff about Willy.
+    ++ [Back]
+    -> cargobay
 + Cargobay Door
 -> baydoor
-+ [Leave]
++ [Back]
 -> commons_hall
 
 = baydoor
@@ -188,7 +197,8 @@ Door: Closed.
 	Closer inspection of the door reveals that it is tightly sealed and does not appear to have any issues in closing and protecting the crew from the vacuum of space.
 
 C: Everything here looks all good to fly!
--> DONE
++ [Back]
+-> cargobay
 
 === labs ===
 = doctor
@@ -205,8 +215,9 @@ R: Go ahead. Knock yourself out. … Please don’t actually knock yourself out.
 
 C: Ok will do and not do.
 
-Need an option to speak to the crew member and some dialog options here to learn some basic stuff about Ridan.
--> DONE
+//Need an option to speak to the crew member and some dialog options here to learn some basic stuff about Ridan.
++ [Back]
+-> labs_hall
 
 = research
 Main Research: Open. Occupied.
@@ -224,16 +235,17 @@ C: Anyways I just needed to check around the room to make sure everything is sec
 
 G: Ok. Just please stay out of my way.
 
-
-Need an option to speak to the crew member and some dialog options here to learn some basic stuff about Giorgio.
--> DONE
+//Need an option to speak to the crew member and some dialog options here to learn some basic stuff about Giorgio.
++ [Back]
+-> labs_hall
 
 = botany
 Plant Lab: Open. Unoccupied. 
 	Entering the plant lab, Rebecca saw short tables line the room in neat rows. Each table had large lights hanging low over them and the tables were covered in pots and grow beds. There was a desk on the farthest wall from the entrance that had a few papers scattered on it and a box opened with microscopes, soil probes, pH meters, and other instruments used to study plant life. While the room was largely empty save for a few flowers and fruits native to Earth in the far corner of the room, she knows that any plant specimen collected by the crew throughout their expedition would be brought here for Iris to research.
 
 C: I can’t wait until we have some more plants to fill up this room! You can take the girl out of the farm but that doesn’t mean the farmer leaves the girl!
--> DONE
++ [Back]
+-> labs_hall
 
 = zoology
 Animal Lab: Closed.
@@ -243,7 +255,8 @@ C: I can’t wait to see all the new species we’re gonna come across throughou
 	After checking everything out, Rebecca notes that the crew members are all on board, everyone is tending to their rooms and unpacking as they need, and people begin to settle into their places. Finishing up the last system checks, Rebecca starts the ship’s engine. Breaking through the gravitational pull of Earth, the ship staggers and shakes with large amounts of turbulence. 
 
 Breaking into the dark abyss, the Earth begins to trail behind them and the ship smooths out a bit, but still maintains an unusual amount of turbulence from the rough manor Rebecca handles the ship in. As Rebecca makes her way out of the Solar System, she receives a ping on a communications computer nearby. 
--> DONE
++ [Back]
+-> labs_hall
 /*
 === manage ===
 
@@ -287,7 +300,7 @@ Breaking into the dark abyss, the Earth begins to trail behind them and the ship
 
 === decision ===
 WD: (in writing) You better have taken off by now! We don’t have the time to sit around all day and you have some work that needs to be done, if you’re wanting to be paid and keep your job! I’ve sent you a list of exoplanets and descriptions based on our satellite data. I need you and your crew to go down and explore their surfaces! I don’t care what order you do them in, but it better get done fast!
--> DONE
+-> ship
 
 === mission ===
 + Open Mission Brief
@@ -295,23 +308,23 @@ There are three planets I’ve tasked your crew with researching:
     
     ++ Regis B:
     A large blue planet about three times the size of Earth, mostly covered in water with archipelagos dotting the cerulean oceans with little green specks.
-    -> DONE
+    -> mission
     ++ Cyprus 45-B:
     A planet slightly smaller than Earth. Located near a red dwarf star, the planet’s temperature readings are extremely cold and the geography appears very homogenous and rocky.
-    -> DONE
+    -> mission
     ++ X-23:
     A planet about 1.5 times the size of Earth. X-23 is located in the system of a blue star causing the planet to have very high temperatures and a very dry climate. The surface is made up almost entirely of dry plateaus and sandy dunes with a desert like appearance.
-    -> DONE
+    -> mission
     "W. Daniels"
     ++ [Back]
     -> mission
 
 + Pick-a-Planet Module
     ** Regis-B
-    -> decision
+    -> DONE
     ** Cyprus 45-B
-    -> decision
+    -> DONE
     ** X-23
-    -> decision
+    -> DONE
     
 -> DONE
