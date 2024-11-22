@@ -1,4 +1,5 @@
-
+LIST Team = Rebecca, Willy, Iris, Lars, Ridan
+CONST planetChoice = 1
 Regis B
 -> ship
 
@@ -12,15 +13,22 @@ Regis B
     Willy walks around the cargo bay with a satchel in hand, browsing their supplies and packing rations of food, water, knives, rope, and other survival gear he thinks will be necessary for those going out on the expedition.
     Hearing Rebecca come onto the PA system again, Giorgio looks over his notes of the different crew members preparing to choose the team that will explore the surface.
     C: Brace yourselves everyone! This ride’s about to get a lot rougher!
+    + [Enter Planet Coordinates] -> coordinates
+    = coordinates
     Rebecca types the coordinates of Regis B into her interplanetary navigation system, or INS, and charts the course through the stars. Starting to push the ship into max hyperdrive, Rebecca prepares for a lightspeed launch across the cosmos. 
     As the ship shakes heavily with turbulence, Dr. Ridan is woken from an accidental slumber that he fell into sitting at the desk of the medbay.
+    + [NEXT] -> ridan_wakes
+    = ridan_wakes
     Ridan: (to himself) Finally taking off I guess. Guess I should get back to work…
-    Ridan begins to organize the rest of his supplies but is knocked onto the sick bed by another sudden jolt where he     quickly dozes off to sleep once again.
+    Ridan begins to organize the rest of his supplies but is knocked onto the sick bed by another sudden jolt where he quickly dozes off to sleep once again.
+    + [NEXT] -> pa_system
+    = pa_system
     After about an hour of travel with the various crew members preparing themselves for the true start to their expedition, Rebecca comes onto the PA system once again.
     C: Get ready everyone! We’re enterin’ Regis B’s atmosphere as I speak!
     The loud announcement wakes Ridan up once again and the rest of the crew is brought to attention. Giorgio makes his way to the cockpit and takes the PA system.
     Giorgio: All crew members report to the cargo bay. We’ve got to prepare for our first expedition!
-    His stern voice implies urgency as he runs on Winter Daniels’s time. Ridan begrudgingly stands and makes his way to the back of the ship. Iris and Lars run into each other in the hallway and walk together to the cargo bay. Willy had never left the bay and sits on boxes waiting for the rest of the crew to arrive. -> regis_b
+    His stern voice implies urgency as he runs on Winter Daniels’s time. Ridan begrudgingly stands and makes his way to the back of the ship. Iris and Lars run into each other in the hallway and walk together to the cargo bay. Willy had never left the bay and sits on boxes waiting for the rest of the crew to arrive.
+    + [NEXT] -> regis_b
 
 === regis_b ===
     Rebecca finishes the landing procedure just as roughly as she had when picking up the crew. Everyone felt a large rumble throughout the ship as it came to a halt. Iris falls down to the ground with Lars helping her up soon after. Ridan stumbles around but manages to catch himself saving himself from tumbling to the ground. Willy braces himself on the boxes he sits on top of. 
@@ -30,51 +38,53 @@ Regis B
 	Giorgio: I’ll be sending out a few of you to do the research we need! The rest of you will stay on the ship and do anything else to help contribute! I’ll be staying on the ship to continue my own work. -> expedition
 
 === expedition ===
-    ///CHOICE: (repeat this choice three times until all expedition members are chosen unless Rebecca is chosen as she cannot go on the expeditions)
-    * Captain Rebecca Monroe
+The Team Roster: {Team}
+//{ Team < 3:}
+    * [Captain Rebecca Monroe]
         Giorgio: Rebecca, why don’t you get out there and explore a bit?
         C: I should probably stay on the ship and check to make sure all the systems are still raring to go!
-        Giorgio: That makes sense. -> expedition
+        Giorgio: That makes sense. -> expedition 
     
-    * Willy Richardson
+    * [Willy Richardson]
+    
+    ~Team += Willy
     	Giorgio: Willy, we could use-
         Willy cuts Giorgio off
     	Willy: Sergeant.
         Giorgio looks annoyed at being interrupted.
-        Giorgio: (mockingly) Sergeant, I know your survival skills are high quality. Make sure no one gets hurt. -> expedition
+        Giorgio: (mockingly) Sergeant, I know your survival skills are high quality. Make sure no one gets hurt. -> expedition 
     
-    * Iris Peacetree
+    * [Iris Peacetree]
+    ~Team += Iris
         Giorgio: Iris, this planet seems to be covered in different plant species. We could use someone like you out there to gather the best information we can.
     	Iris: Ooh ooh thank you so much! I won’t let you down!!
-        (If Lars already chosen) Lars and Iris glance at each other and share a warm smile between one another. -> expedition
+        -> shared_smile
     
-    * Lars Clarkson
+    * [Lars Clarkson]
+    ~Team += Lars
         Giorgio: Lars, this planet has the perfect conditions for life, why don’t you get out there and see if you can find anything!
         Lars: I’ll do my best, sir. Thank you for the opportunity!
-        (If Iris already chosen) Lars and Iris glance at each other and share a warm smile between one another. -> expedition
+        -> shared_smile
     
-    * Ridan Tyndale
+    * [Ridan Tyndale]
+    ~Team += Ridan
     	Giorgio: Ridan, you seem like you’d be a good fit for this expedition.
         Ridan groans but doesn’t have the willpower to fight back so he accepts his fate
     	Ridan: If I have to… -> expedition
 
-After the first choice:
-		(If Iris is not chosen) {not (expedition.iris) Iris gets a bit more antsy and giddy. She desperately wants to explore the scenery of this foreign planet.|Iris gets even more antsy and can’t contain herself. It’s taking everything in her not to scream out.|Iris looks down sadly and looks as though she’s holding back tears.}
+	//{!Iris gets a bit more antsy and giddy. She desperately wants to explore the scenery of this foreign planet.|Iris gets even more antsy and can’t contain herself. It’s taking everything in her not to scream out.|Iris looks down sadly and looks as though she’s holding back tears.}
 
-After the second choice:
-		(If Iris is not chosen) Iris gets even more antsy and can’t contain herself. It’s taking everything in her not to scream out.
-
-After the third choice:
-		(If Iris is not chosen) Iris looks down sadly and looks as though she’s holding back tears.
+= shared_smile
+    Lars and Iris glance at each other sharing a warm smile. -> expedition
 
 = team
 	Giorgio: Alright crew! Those of you chosen finish getting ready to head out. The rest of you stay on the ship and keep doing the work expected of you. This is not a vacation!
 	The chosen crew of (choice 1), (choice 2), and (choice 3) finish packing up their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Regis B.
 	Looking around the planet, the researchers are met with bright light as the sun reflects off of the cerulean oceans sprawling to the horizon. The rhythmic splashing of the ocean’s currents on the shore and the salty smell of the atmosphere reminds the crew of beaches back on Earth. In the distance, the green peaks of neighboring islands can be made out. The air is heavy and humid creating a thick feeling all around them with tropical heat brushing over them. 
 	Preparing to explore the planet the researchers have to decide where to start gathering research.
--> travel_to
+-> explore
 
-=== travel_to ===
+=== explore ===
     //CHOICE:
     * Walk the shoreline
     -> shoreline
