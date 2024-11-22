@@ -30,59 +30,67 @@ Regis B
     His stern voice implies urgency as he runs on Winter Daniels’s time. Ridan begrudgingly stands and makes his way to the back of the ship. Iris and Lars run into each other in the hallway and walk together to the cargo bay. Willy had never left the bay and sits on boxes waiting for the rest of the crew to arrive.
     + [NEXT] -> regis_b
 
-=== regis_b ===
-    Rebecca finishes the landing procedure just as roughly as she had when picking up the crew. Everyone felt a large rumble throughout the ship as it came to a halt. Iris falls down to the ground with Lars helping her up soon after. Ridan stumbles around but manages to catch himself saving himself from tumbling to the ground. Willy braces himself on the boxes he sits on top of. 
-	Giorgio: You have to work on that landing Captain. I know this is your ship, but other people are on it now and you hold responsibility for them.
-	C: Understood Doc! I’ll try ‘nd work on that!!
-	Moments later, the ship’s engine is turned off and Giorgio and Rebecca walk into the cargo bay together. The rest of the crew draws their attention to them.
-	Giorgio: I’ll be sending out a few of you to do the research we need! The rest of you will stay on the ship and do anything else to help contribute! I’ll be staying on the ship to continue my own work. -> expedition
+    == regis_b
+        Rebecca finishes the landing procedure just as roughly as she had when picking up the crew. Everyone felt a large rumble throughout the ship as it came to a halt. Iris falls down to the ground with Lars helping her up soon after. Ridan stumbles around but manages to catch himself saving himself from tumbling to the ground. Willy braces himself on the boxes he sits on top of. 
+    	Giorgio: You have to work on that landing Captain. I know this is your ship, but other people are on it now and you hold responsibility for them.
+    	C: Understood Doc! I’ll try ‘nd work on that!!
+    	Moments later, the ship’s engine is turned off and Giorgio and Rebecca walk into the cargo bay together. The rest of the crew draws their attention to them.
+    	Giorgio: I’ll be sending out a few of you to do the research we need! The rest of you will stay on the ship and do anything else to help contribute! I’ll be staying on the ship to continue my own work. -> expedition_choice
 
-=== expedition ===
-The Team Roster: {Team}
-//{ Team < 3:}
-    * [Captain Rebecca Monroe]
-        Giorgio: Rebecca, why don’t you get out there and explore a bit?
-        C: I should probably stay on the ship and check to make sure all the systems are still raring to go!
-        Giorgio: That makes sense. -> expedition 
+    == expedition_choice
+    The Team Roster: {Team}
+        * [Captain Rebecca Monroe]
+            Giorgio: Rebecca, why don’t you get out there and explore a bit?
+            C: I should probably stay on the ship and check to make sure all the systems are still raring to go!
+            Giorgio: That makes sense. 
+        
+        * [Willy Richardson]
+        
+        ~Team += Willy
+        	Giorgio: Willy, we could use-
+            Willy cuts Giorgio off
+        	Willy: Sergeant.
+            Giorgio looks annoyed at being interrupted.
+            Giorgio: (mockingly) Sergeant, I know your survival skills are high quality. Make sure no one gets hurt. 
+        
+        * [Iris Peacetree]
+        ~Team += Iris
+            Giorgio: Iris, this planet seems to be covered in different plant species. We could use someone like you out there to gather the best information we can.
+        	Iris: Ooh ooh thank you so much! I won’t let you down!!
+            {Team ? (Lars): -> shared_smile}
+        
+        * [Lars Clarkson]
+        ~Team += Lars
+            Giorgio: Lars, this planet has the perfect conditions for life, why don’t you get out there and see if you can find anything!
+            Lars: I’ll do my best, sir. Thank you for the opportunity!
+            {Team ? (Iris): -> shared_smile}
+        
+        * [Ridan Tyndale]
+        ~Team += Ridan
+        	Giorgio: Ridan, you seem like you’d be a good fit for this expedition.
+            Ridan groans but doesn’t have the willpower to fight back so he accepts his fate
+        	Ridan: If I have to…
     
-    * [Willy Richardson]
+    	//{!Iris gets a bit more antsy and giddy. She desperately wants to explore the scenery of this foreign planet.|Iris gets even more antsy and can’t contain herself. It’s taking everything in her not to scream out.|Iris looks down sadly and looks as though she’s holding back tears.}
+        -
+        {
+        - LIST_COUNT(Team) < 3: -> expedition_choice
+        - else: -> team
+        }
+       
+    = shared_smile
+        Lars and Iris glance at each other sharing a warm smile.
+        {
+        - LIST_COUNT(Team) < 3: -> expedition_choice
+        - else: -> team
+        }
     
-    ~Team += Willy
-    	Giorgio: Willy, we could use-
-        Willy cuts Giorgio off
-    	Willy: Sergeant.
-        Giorgio looks annoyed at being interrupted.
-        Giorgio: (mockingly) Sergeant, I know your survival skills are high quality. Make sure no one gets hurt. -> expedition 
-    
-    * [Iris Peacetree]
-    ~Team += Iris
-        Giorgio: Iris, this planet seems to be covered in different plant species. We could use someone like you out there to gather the best information we can.
-    	Iris: Ooh ooh thank you so much! I won’t let you down!!
-        -> shared_smile
-    
-    * [Lars Clarkson]
-    ~Team += Lars
-        Giorgio: Lars, this planet has the perfect conditions for life, why don’t you get out there and see if you can find anything!
-        Lars: I’ll do my best, sir. Thank you for the opportunity!
-        -> shared_smile
-    
-    * [Ridan Tyndale]
-    ~Team += Ridan
-    	Giorgio: Ridan, you seem like you’d be a good fit for this expedition.
-        Ridan groans but doesn’t have the willpower to fight back so he accepts his fate
-    	Ridan: If I have to… -> expedition
-
-	//{!Iris gets a bit more antsy and giddy. She desperately wants to explore the scenery of this foreign planet.|Iris gets even more antsy and can’t contain herself. It’s taking everything in her not to scream out.|Iris looks down sadly and looks as though she’s holding back tears.}
-
-= shared_smile
-    Lars and Iris glance at each other sharing a warm smile. -> expedition
-
-= team
-	Giorgio: Alright crew! Those of you chosen finish getting ready to head out. The rest of you stay on the ship and keep doing the work expected of you. This is not a vacation!
-	The chosen crew of (choice 1), (choice 2), and (choice 3) finish packing up their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Regis B.
-	Looking around the planet, the researchers are met with bright light as the sun reflects off of the cerulean oceans sprawling to the horizon. The rhythmic splashing of the ocean’s currents on the shore and the salty smell of the atmosphere reminds the crew of beaches back on Earth. In the distance, the green peaks of neighboring islands can be made out. The air is heavy and humid creating a thick feeling all around them with tropical heat brushing over them. 
-	Preparing to explore the planet the researchers have to decide where to start gathering research.
--> explore
+    = team
+    	Giorgio: Alright crew! Those of you chosen finish getting ready to head out. The rest of you stay on the ship and keep doing the work expected of you. This is not a vacation!
+    	The chosen crew of (choice 1), (choice 2), and (choice 3) finish packing up their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Regis B.
+    	Looking around the planet, the researchers are met with bright light as the sun reflects off of the cerulean oceans sprawling to the horizon. The rhythmic splashing of the ocean’s currents on the shore and the salty smell of the atmosphere reminds the crew of beaches back on Earth. In the distance, the green peaks of neighboring islands can be made out. The air is heavy and humid creating a thick feeling all around them with tropical heat brushing over them. 
+    	Preparing to explore the planet the researchers have to decide where to start gathering research.
+    -> explore
 
 === explore ===
     //CHOICE:
