@@ -4,8 +4,8 @@ Regis B
 -> ship
 
 === ship ===
-
-= chosen_first
+->chosen_first
+== chosen_first
     Rebecca starts up the ship’s PA system and broadcasts a message to the entire crew.
     C: Alright everyone! We’re headed off to the first planet for our expedition! I’ve decided to start us with Regis B. It seems similar to our atmosphere so I figured it’d be a good start.
     In her room as she finishes unpacking, Iris lets out a squeal of excitement at the prospect of discovering alien plants that are sure to be thriving on a planet similar to earth.
@@ -30,22 +30,22 @@ Regis B
     His stern voice implies urgency as he runs on Winter Daniels’s time. Ridan begrudgingly stands and makes his way to the back of the ship. Iris and Lars run into each other in the hallway and walk together to the cargo bay. Willy had never left the bay and sits on boxes waiting for the rest of the crew to arrive.
     + [NEXT] -> regis_b
 
-    == regis_b
-        Rebecca finishes the landing procedure just as roughly as she had when picking up the crew. Everyone felt a large rumble throughout the ship as it came to a halt. Iris falls down to the ground with Lars helping her up soon after. Ridan stumbles around but manages to catch himself saving himself from tumbling to the ground. Willy braces himself on the boxes he sits on top of. 
-    	Giorgio: You have to work on that landing Captain. I know this is your ship, but other people are on it now and you hold responsibility for them.
-    	C: Understood Doc! I’ll try ‘nd work on that!!
-    	Moments later, the ship’s engine is turned off and Giorgio and Rebecca walk into the cargo bay together. The rest of the crew draws their attention to them.
-    	Giorgio: I’ll be sending out a few of you to do the research we need! The rest of you will stay on the ship and do anything else to help contribute! I’ll be staying on the ship to continue my own work. -> expedition_choice
+    = regis_b
+    Rebecca finishes the landing procedure just as roughly as she had when picking up the crew. Everyone felt a large rumble throughout the ship as it came to a halt. Iris falls down to the ground with Lars helping her up soon after. Ridan stumbles around but manages to catch himself saving himself from tumbling to the ground. Willy braces himself on the boxes he sits on top of. 
+    Giorgio: You have to work on that landing Captain. I know this is your ship, but other people are on it now and you hold responsibility for them.
+    C: Understood Doc! I’ll try ‘nd work on that!!
+    Moments later, the ship’s engine is turned off and Giorgio and Rebecca walk into the cargo bay together. The rest of the crew draws their attention to them.
+	Giorgio: I’ll be sending out a few of you to do the research we need! The rest of you will stay on the ship and do anything else to help contribute! I’ll be staying on the ship to continue my own work. -> expedition_choice
 
     == expedition_choice
     The Team Roster: {Team}
+    {LIST_COUNT(Team)} 
         * [Captain Rebecca Monroe]
             Giorgio: Rebecca, why don’t you get out there and explore a bit?
             C: I should probably stay on the ship and check to make sure all the systems are still raring to go!
             Giorgio: That makes sense. 
         
         * [Willy Richardson]
-        
         ~Team += Willy
         	Giorgio: Willy, we could use-
             Willy cuts Giorgio off
@@ -72,12 +72,12 @@ Regis B
         	Ridan: If I have to…
     
     	//{!Iris gets a bit more antsy and giddy. She desperately wants to explore the scenery of this foreign planet.|Iris gets even more antsy and can’t contain herself. It’s taking everything in her not to scream out.|Iris looks down sadly and looks as though she’s holding back tears.}
-        -
-        {
+    	-
+    	
+    	{
         - LIST_COUNT(Team) < 3: -> expedition_choice
         - else: -> team
         }
-       
     = shared_smile
         Lars and Iris glance at each other sharing a warm smile.
         {
@@ -92,7 +92,7 @@ Regis B
     	Preparing to explore the planet the researchers have to decide where to start gathering research.
     -> explore
 
-=== explore ===
+== explore
     //CHOICE:
     * Walk the shoreline
     -> shoreline
@@ -103,35 +103,47 @@ Regis B
     -> coast_forest
 
 == shoreline
-	The researchers walk the coastline and take in the scenery. The beautiful shoreline and tropical smells bring a serene sense of peace to all of them. -> DONE
+	The researchers walk the coastline and take in the scenery. The beautiful shoreline and tropical smells bring a serene sense of peace to all of them. 
+	{
+	- Team == (Lars, Iris): -> lars_iris
+	- Team ? (Lars): -> lars
+	- Team ? (Iris): -> iris
+	- else: -> crew
+	}
+	-> crew
 
     = lars_iris
         //(If Lars and Iris are on the expedition)
         Iris: I always wished to visit the beaches on Earth more. I never really had the chance to just walk the coastline like this with someone. It’s so exciting to be somewhere new and get an experience like this!!
         Lars: It is nice just getting to walk the shore and take in the sights. It’s different from anything I’ve done before, that’s for sure.
-        The two smile at each other warmly. (Third crew member) feels out of place, as though they’re the third wheel on a date. -> DONE
+        The two smile at each other warmly. (Third crew member) feels out of place, as though they’re the third wheel on a date. 
+        -> lars -> iris
     
     = lars
         //(If Lars is on the expedition)
         Along the shore, Lars notices animal prints in the sand. He signals to the other researchers on the expedition to remain quiet and move slowly. He pulls out a net from his bag and begins to follow the prints. Hearing some ruffling in a nearby bush, he casts the net out and pulls it back, capturing the alien species and placing it in a cage.
         
         Lars: Good start to a new planet! Already captured my first specimen!
-    	The other crew members seem happy with his success and continue on their expedition. -> DONE
+    	The other crew members seem happy with his success and continue on their expedition. 
+    	-> crew
     
     = iris
         //(If Iris is on the expedition)
     	Iris notices some seaweed like plants that washed onto shore. Putting a glove on her hand and taking out a small plastic bag, she picks up the plant and places it into the bag.
     	
-    	Iris: Already got my first plant to research!! This is gonna be so so so much fun!! -> DONE
+    	Iris: Already got my first plant to research!! This is gonna be so so so much fun!! 
+    	-> crew
     
     = crew
         //(If neither Iris nor Lars were chosen)
     	The crew continues along the shoreline but fails to identify any specimen worth picking up to research. 
-    	The crew takes temperatures of the atmosphere and water, recording them to meet the required quota of research data and continues on their way. -> DONE
+    	-> finishing_coast
     
     = finishing_coast
-        //(If following the choice 1 path)
-    	Finishing up everything they could do on the shoreline, the researchers decide that they’ve collected enough data to return to the ship and turn around, retracing their steps in the sand back to where they came from. -> ship
+        //(If following the choice 1 path) 
+    	The crew takes temperatures of the atmosphere and water, recording them to meet the required quota of research data and continues on their way. 
+    	Finishing up everything they could do on the shoreline, the researchers decide that they’ve collected enough data to return to the ship and turn around, retracing their steps in the sand back to where they came from. 
+    	-> ship
 
 == coast_forest
     //(If following the choice 3 path)
