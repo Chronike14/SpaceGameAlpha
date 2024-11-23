@@ -103,16 +103,16 @@ Regis B
 
 == explore
     //CHOICE:
-    * Walk the shoreline
+    * [Walk the shoreline]
     -> shoreline
-    * Enter the inland forest
+    * [Enter the inland forest]
     -> forest
     //(Only if Willy was chosen)
-    * Venture out on the coastline, return in the forest
-    -> coast_forest
+    * {Team ? (Willy)} [Venture out on the coastline, return in the forest]
+    -> shoreline
 
-== shoreline
-Expedition Team: {Team}
+    = shoreline
+    Expedition Team: {Team}
 	The researchers walk the coastline and take in the scenery. The beautiful shoreline and tropical smells bring a serene sense of peace to all of them. 
     
     * {Team ? (Lars)} [Lars]
@@ -139,19 +139,19 @@ Expedition Team: {Team}
     
     -
         The crew takes temperatures of the atmosphere and water, recording them to meet the required quota of research data and continues on their way. 
+    *   {Team ? (Willy)} [Forest]
+        //(If following the choice 3 path)
+	    Finishing up collecting data they need on the shoreline, the researchers decide to venture deeper inland to the forest covering the island. -> forest
+	    
     	Finishing up everything they could do on the shoreline, the researchers decide that they’ve collected enough data to return to the ship and turn around, retracing their steps in the sand back to where they came from. 
     	-> DONE
 
-== coast_forest
-    //(If following the choice 3 path)
-	Finishing up collecting data they need on the shoreline, the researchers decide to venture deeper inland to the forest covering the island. -> forest
-
-== forest
-{Team}
+    = forest
+    {Team}
     //Choice 2/End of Choice 3:
 	Entering into the vast forest, the crew is met with lush foliage and thick brush under their feet. It was hard to believe that they were on an island as they were surrounded by thick jungle with no sight of the shore.
     
-    = iris
+    * {Team ? (Iris)} [Iris]
         //(If Iris is on the expedition)
     	Iris: I don’t even know where to begin!! There are so so so many different species here I’ve never seen before. It’s all so foreign I have to get a little bit of everything!!
     	Iris spends the next 30 minutes cutting away pieces of every plant she can find, keeping them in their own bags to research on the ship later. She tries to collect as many seeds, spores, and cones as possible to try and regrow these plants aboard the ship as well.
@@ -162,7 +162,7 @@ Expedition Team: {Team}
     	Lars: Got it!!
     	Lars’s shout jolts the other two researchers awake and they approach him and the cage, peering at the animal they just trapped.
     	(Researcher 2): It’s kinda cute!
-    	Moving on, Lars decided to spare the time of everyone else that this is the only trap he will set. As the crew continues to venture through the forest, he picks up any bugs and smaller, easier to catch animals that he can. -> DONE
+    	Moving on, Lars decided to spare the time of everyone else that this is the only trap he will set. As the crew continues to venture through the forest, he picks up any bugs and smaller, easier to catch animals that he can.
     
     * {Team ? (Lars, Iris)} [lars & Iris]
         //(If Iris and Lars chosen)
@@ -171,19 +171,21 @@ Expedition Team: {Team}
     	Iris: Yea, I’m alright I think! I’m used to tripping over and falling.
     	Lars and Iris laugh together as Lars helps Iris stand up. The two of them continue on ahead, leaving (3rd crew member) trailing behind.
     	
-    = crew
+    * {Team != (Lars, Iris)} [Crew]
         //(If neither Lars nor Iris were chosen)
-    	The crew ventures through the interior of the forest. Knowing that they’re there to research the different components of the island, they grab random plants and insects and store them to bring back to the ship. -> DONE
+    	The crew ventures through the interior of the forest. Knowing that they’re there to research the different components of the island, they grab random plants and insects and store them to bring back to the ship.
     
-    = finishing_forest
+    -
         //(If following the Choice 2 Path)
-    	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship. -> DONE
+    	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship.
     
-    = finishing_willy
+    * {Team ? (Willy)} [Leave]
         //End of Choice 3:
     	Willy leads the crew through the forest, tracking the movement of astral bodies and listening for the sounds of the waves to find their way back to the ship.
     	Willy: This turf ain’t nuthin’! I could navigate us back to the ship with my eyes closed and both arms tied behind my back! I was hoping for a real struggle in the adventurin’ out here!
-    	The researchers find their way out of the forest with an efficient use of their time and head back onto the ship. Willy, feeling like he led them through the toughest journey of their lives, feels especially rewarded for his ability to lead them around the planet effectively. -> DONE
+    	The researchers find their way out of the forest with an efficient use of their time and head back onto the ship. Willy, feeling like he led them through the toughest journey of their lives, feels especially rewarded for his ability to lead them around the planet effectively.
+    -
+-> DONE
 
 /*
 = chosen_second
