@@ -113,38 +113,42 @@ Regis B
 
     = shoreline
     Expedition Team: {Team}
-	The researchers walk the coastline and take in the scenery. The beautiful shoreline and tropical smells bring a serene sense of peace to all of them. 
+	The researchers walk the coastline and take in the scenery. The beautiful shoreline and tropical smells bring a serene sense of peace to all of them. -> shoreline_interactions
     
+    =shoreline_interactions
     * {Team ? (Lars)} [Lars]
         //(If Lars is on the expedition)
         Along the shore, Lars notices animal prints in the sand. He signals to the other researchers on the expedition to remain quiet and move slowly. He pulls out a net from his bag and begins to follow the prints. Hearing some ruffling in a nearby bush, he casts the net out and pulls it back, capturing the alien species and placing it in a cage.
         Lars: Good start to a new planet! Already captured my first specimen!
-    	The other crew members seem happy with his success and continue on their expedition. 
+    	The other crew members seem happy with his success and continue on their expedition.
+    	-> shoreline_interactions
     
     * {Team ? (Iris)} [Iris]
         //(If Iris is on the expedition)
     	Iris notices some seaweed like plants that washed onto shore. Putting a glove on her hand and taking out a small plastic bag, she picks up the plant and places it into the bag.
     	
     	Iris: Already got my first plant to research!! This is gonna be so so so much fun!! 
-    
+        -> shoreline_interactions
     /* {Team != (Lars, Iris)} [Crew]
         //(If neither Iris nor Lars were chosen)
-    	The crew continues along the shoreline but fails to identify any specimen worth picking up to research. */
+    	The crew continues along the shoreline but fails to identify any specimen worth picking up to research.
+    	-> shoreline_interactions*/
     	
     * {Team ? (Lars, Iris)} [lars & Iris]
         //(If Lars and Iris are on the expedition)
         Iris: I always wished to visit the beaches on Earth more. I never really had the chance to just walk the coastline like this with someone. It’s so exciting to be somewhere new and get an experience like this!!
         Lars: It is nice just getting to walk the shore and take in the sights. It’s different from anything I’ve done before, that’s for sure.
         The two smile at each other warmly. (Third crew member) feels out of place, as though they’re the third wheel on a date.
-    
+        -> shoreline_interactions
+        
     -
         The crew takes temperatures of the atmosphere and water, recording them to meet the required quota of research data and continues on their way. 
     *   {Team ? (Willy)} [Forest]
         //(If following the choice 3 path)
 	    Finishing up collecting data they need on the shoreline, the researchers decide to venture deeper inland to the forest covering the island. -> forest
-	    
+	-    
     	Finishing up everything they could do on the shoreline, the researchers decide that they’ve collected enough data to return to the ship and turn around, retracing their steps in the sand back to where they came from. 
-    	-> DONE
+	-> DONE
 
     = forest
     {Team}
