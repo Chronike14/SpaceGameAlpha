@@ -1,6 +1,7 @@
 INCLUDE Intro.ink
 INCLUDE Prologue.ink
 INCLUDE Endings.ink
+INCLUDE Cyprus 45B.ink
 
 LIST Team = Rebecca, Willy, Iris, Lars, Ridan
 VAR teamOne = ()

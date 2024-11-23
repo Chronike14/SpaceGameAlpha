@@ -1,0 +1,302 @@
+LIST Team = Rebecca, Willy, Iris, Lars, Ridan
+VAR teamOne = ()
+VAR teamTwo = ()
+VAR teamThree = ()
+
+CONST planetChoice = 1
+
+VAR both_routes = false
+
+
+=== function teamAssign()
+    ~ teamOne = Team(1)
+    ~ teamTwo = Team(2)
+    ~ teamThree = Team(3)
+
+
+=== ship ===
++ [Chosen First] ->chosen_first
+//+ [Chosen Second] -> chosen_second
+//+ [Chosen Third] -> chosen_third
+-> DONE
+
+== chosen_first
+    Rebecca starts up the ship’s PA system and broadcasts a message to the entire crew.
+
+	C: Alright everyone! We’re headed off to the first planet for our expedition! I’ve decided to start us with Cyprus 45-B. It’s a colder planet orbiting a red dwarf star. Definitely one that will be fun for you to explore!
+
+	Iris grabs a book on plants able to survive in colder and more barren climates. Parsing through the pages to see what she should be looking out for.
+
+	Willy walks around the cargo bay with a satchel in hand, browsing their supplies and packing rations of food, water, knives, rope, and other survival gear he thinks will be necessary for those going out on the expedition.
+
+Hearing Rebecca come onto the PA system again, Giorgio looks over his notes of the different crew members preparing to choose the team that will explore the surface.
+
+	C: Brace yourselves everyone! This ride’s about to get a lot rougher!
+    + [Enter Planet Coordinates] -> coordinates
+    = coordinates
+    Rebecca types the coordinates of Cyprus 45-B into her interplanetary navigation system, or INS, and charts the course through the stars. Starting to push the ship into max hyperdrive, Rebecca prepares for a lightspeed launch across the cosmos. 
+
+	As the ship shakes heavily with turbulence, Dr. Ridan is woken from an accidental slumber that he fell into sitting at the desk of the medbay.
+
+    + [NEXT] -> ridan_wakes
+    = ridan_wakes
+    Ridan: (to himself) Finally taking off I guess. Guess I should get back to work…
+
+	Ridan begins to organize the rest of his supplies but is knocked onto the sick bed by another sudden jolt where he quickly dozes off to sleep once again.
+    + [NEXT] -> pa_system
+    = pa_system
+    After about an hour of travel with the various crew members preparing themselves for the true start to their expedition, Rebecca comes onto the PA system once again.
+
+	C: Get ready everyone! We’re enterin’ Cyprus 45-B’s atmosphere as I speak!
+
+	The loud announcement wakes Ridan up once again and the rest of the crew is brought to attention. Giorgio makes his way to the cockpit and takes the PA system.
+
+	Giorgio: All crew members report to the cargo bay. We’ve got to prepare for our first expedition!
+
+	His stern voice implies urgency as he runs on Winter Daniels’s time. Ridan begrudgingly stands and makes his way to the back of the ship. Iris and Lars run into each other in the hallway and walk together to the cargo bay. Willy had never left the bay and sits on boxes waiting for the rest of the crew to arrive.
+    + [NEXT] -> cyprus_45b
+
+    = cyprus_45b
+    Rebecca finishes the landing procedure just as roughly as she had when picking up the crew. Everyone felt a large rumble throughout the ship as it came to a halt. Iris falls down to the ground with Lars helping her up soon after. Ridan stumbles around but manages to catch himself saving himself from tumbling to the ground. Willy braces himself on the boxes he sits on top of. 
+
+	Giorgio: You have to work on that landing Captain. I know this is your ship, but other people are on it now and you hold responsibility for them.
+
+	C: Understood Doc! I’ll try ‘nd work on that!!
+
+	Moments later, the ship’s engine is turned off and Giorgio and Rebecca walk into the cargo bay together. The rest of the crew draws their attention to them.
+
+	Giorgio: I’ll be sending out a few of you to do the research we need! The rest of you will stay on the ship and do anything else to help contribute to our research! I’ll be staying on the ship to continue my own work. -> expedition_choice
+
+    = expedition_choice
+    The Team Roster: {Team}    
+        * [Captain Rebecca Monroe]
+        //~Team += Rebecca
+            Giorgio: Rebecca, why don’t you get out there and explore a bit?
+            C: I should probably stay on the ship and check to make sure all the systems are still raring to go!
+            Giorgio: That makes sense. 
+        
+        * [Willy Richardson]
+        ~Team += Willy
+        	Giorgio: Willy, we could use-
+
+			Willy cuts Giorgio off
+
+			Willy: Sergeant.
+
+			Giorgio looks annoyed at being interrupted.
+
+            Giorgio: (mockingly) Sergeant, I know your survival skills are high quality. Make sure no one gets hurt.
+ 
+        
+        * [Iris Peacetree]
+        ~Team += Iris
+            Giorgio: Iris, if you’re able to find plants that are able to thrive in an environment like this, they’re definitely plants worth researching.
+
+			Iris: I’ll try my hardest to see if I can find anything!
+            {Team ? (Lars): -> shared_smile}
+        
+        * [Lars Clarkson]
+        ~Team += Lars
+            Giorgio: Lars, I doubt anything would be able to survive on a planet like this but keep your eyes out for any signs of life!
+			
+            Lars: Yes sir! I’ll keep my eyes peeled for anything I might find!
+
+            {Team ? (Iris): -> shared_smile}
+        
+        * [Ridan Tyndale]
+        ~Team += Ridan
+        	Giorgio: Ridan, why don’t you get out there and do some field work?
+
+            Ridan groans but doesn’t have the willpower to fight back so he accepts his fate
+
+			Ridan: Cold and alone. I guess I can get behind that…
+    
+    	//{!Iris gets a bit more antsy and giddy. She desperately wants to explore the scenery of this foreign planet.|Iris gets even more antsy and can’t contain herself. It’s taking everything in her not to scream out.|Iris looks down sadly and looks as though she’s holding back tears.}
+    	-
+    	
+    	{
+        - LIST_COUNT(Team) < 3: -> expedition_choice
+        - else: -> team_with
+        }
+    = shared_smile
+        Lars and Iris glance at each other sharing a warm smile.
+        {
+        - LIST_COUNT(Team) < 3: -> expedition_choice
+        - else: -> team_with
+        }
+    
+    = team_with
+    	Giorgio: Alright crew! Those of you chosen finish getting ready to head out. The rest of you stay on the ship and keep doing the work expected of you. This is not a vacation!
+
+	The chosen crew of {Team} finish packing up their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Cyprus 45-B.
+
+	Looking around the planet, the researchers are met with a dim planet covered in a red hue. There’s sparse vegetation spanning the area lacking any hue. Hard rock and rigid mounds fill the area creating a very mountainous feel to the planet. It’s almost dead silent in the area with subtle breezes blowing small rocks through the air to break the complete emptiness. Every breath is filled with a crisp feeling with a metallic smell and taste in the air. Lingering dust in the air causes a gritty feeling all around them. The frigid temperatures cause the crew to shiver.
+
+	Preparing to explore the planet the researchers have to decide where to start gathering research.
+    -> explore
+
+    = explore
+    //CHOICE:
+    * [Stay nearby the ship and only gather research in the immediately safe areas]
+    -> nearby
+    * [Venture down a path naturally carved by weathering until it ends]
+    -> path
+    //(Only if Willy was chosen)
+    * {Team ? (Willy)} [Climb a steep mound and see what lies at the peak]
+    ~ both_routes = true
+    -> mound
+
+    = nearby
+    Expedition Team: {Team}
+	Scared of the potential dangers of falling or getting trapped on this rugged terrain, the researchers choose to stay in the clearing where the ship landed and avoid any chance of injury. -> nearby_interactions
+    
+    = nearby_interactions
+    * {Team ? (Lars)} [Lars]
+        //(If Lars is on the expedition)
+        Unable to find any signs of life, Lars feels like he’s out of place researching on this planet. He gives up on trying to find any animal specimen and begins to collect some plants for Iris instead. -> nearby_interactions
+    
+    * {Team ? (Iris)} [Iris]
+        //(If Iris is on the expedition)
+        Iris looks around the ship and finds small, weed-like plants completely missing any color. They resemble the transparent, white appearing fish found in caves and at the bottom of the ocean. Fascinated by their ability to survive with such little light, she collects as many of the various plants she can find.
+        
+        Iris trips on a rock and scrapes the top layer of skin off of her shin.
+    
+    	Iris: Ooooh that is NOT good!
+    
+    	//(If Ridan not chosen and Iris chosen)~~
+    	{Team !? (Ridan)} The other members of the crew turn back to look at Iris. None of them know anything beyond basic first aid. Iris opens her satchel, pulls out some bandages packed inside, and loosely wraps them around her leg. The other researchers help Iris to her feet and she walks with a slight limp for the rest of the expedition. 
+        
+        //(If Iris and Ridan chosen)~~
+    	{Team ? (Ridan, Iris)} Ridan: That looks painful! Let me take a look at it.
+    
+    	Ridan grabs Iris’s leg and pulls it towards him a bit roughly. He takes out a spray bottle and some bandages from his satchel.
+    
+    	Ridan: This should help you heal quicker and avoid any risk of infection. Keep it there for a few hours and the skin should grow over it by the time we’re done on the surface here!
+    
+    	Ridan sprays the disinfectant skin regrowth serum on Iris’s leg and wraps it up in a bandage before leaving her and going back to doing more research. Amazingly, Iris feels little remaining pain and is able to get back up and continue collecting specimens. -> nearby_interactions
+    * {Team !? (Iris)} [Crew]
+        //(If neither Iris nor Lars were chosen)
+    	The crew continues along the shoreline but fails to identify any specimen worth picking up to research. -> nearby_interactions
+    	
+    * {Team ? (Lars, Iris)} [lars & Iris]
+        //(If Lars and Iris are on the expedition)
+        Seeing as how the majority of the planet is barren, the researchers collect a few plants scattered around the ship and take a few samples of the rock on the planet as well. Recording the temperature of the atmosphere, they finish up everything they feel they need to do. -> nearby_interactions
+    
+	*->   
+        The researchers finish up everything they need to do on Cyprus 45-B and find their way back onto the ship ready to head off of the planet. -> returning_to_ship
+
+    = path
+    {Team}
+    //Choice 2:
+	Seeing a clear carved path in the ground ahead of them, the researchers head down away from the ship to a more rugged part of the planet. -> path_interactions
+    
+    = path_interactions
+    * {Team ? (Iris)} [Iris]
+        //(If Iris is on the expedition)
+    	Iris looks around the bottom of the path under her feet and finds small, weed-like plants completely missing any color. They resemble the transparent, white appearing fish found in caves and at the bottom of the ocean. Fascinated by their ability to survive with such little light, she collects as many of the various plants she can find.
+        
+        Iris trips on a rock and scrapes the top layer of skin off of her shin.
+    
+    	Iris: Ooooh that is NOT good!!
+    	
+    	//(If Ridan not chosen and Iris chosen)
+    	{Team !? (Ridan)} The other members of the crew turn back to look at Iris. None of them know anything beyond basic first aid. Iris opens her satchel, pulls out some bandages packed inside, and loosely wraps them around her leg. The other researchers help Iris to her feet and she walks with a slight limp for the rest of the expedition. 
+    
+        //(If Iris and Ridan chosen)
+    	{Team ? (Ridan)} Ridan: That looks painful! Let me take a look at it.
+    
+    	Ridan grabs Iris’s leg and pulls it towards him a bit roughly. He takes out a spray bottle and some bandages from his satchel.
+    
+    	Ridan: This should help you heal quicker and avoid any risk of infection. Keep it there for a few hours and the skin should grow over it by the time we’re done on the surface here!
+    
+    	Ridan sprays the disinfectant skin regrowth serum on Iris’s leg and wraps it up in a bandage before leaving her and going back to doing more research. Amazingly, Iris feels little remaining pain and is able to get back up and continue collecting specimens. ->path_interactions
+    
+    * {Team ? (Lars)} [Lars]
+        //(If Lars is on the expedition)
+    	Unable to find any signs of life, Lars feels like he’s out of place researching on this planet. He gives up on trying to find any animal specimen and begins to collect some plants for Iris instead. ->path_interactions
+    
+    * {Team ? (Lars, Iris)} [lars & Iris]
+        //(If Iris and Lars chosen)
+    	Lars and Iris begin to walk with each other, Lars guiding the way and helping Iris to make sure she doesn’t fall again.
+
+	Iris: I’m really glad we’re getting to spend more time together. A planet like this is really cool to be able to do it on too!!
+
+	Lars: I’m happy to spend time with you no matter what planet we’re on!
+
+	The two of them laugh as the other researcher rolls their eyes in annoyance at the public flirting. ->path_interactions
+    	
+    * {Team !? (Iris)} [Crew]
+        //(If Iris were not chosen)
+    	Seeing as how the majority of the planet is barren, the researchers collect a few plants scattered around the ship and take a few samples of the rock on the planet as well. Recording the temperature of the atmosphere, they finish up everything they feel they need to do. -> path_interactions 
+
+    *->
+        //(If following the Choice 2 Path)
+    	The researchers finish up everything they need to do on Cyprus 45-B and find their way back onto the ship ready to head off of the planet. -> returning_to_ship
+    
+    = mound
+    {Team}
+    //Choice 3:
+    Willy leads the crew members to a steep and ridgid cliff a few hundred feet away from the ship. Appearing difficult to climb and worried about the crew’s safety, Willy takes the rope out of his satchel.
+
+	Willy: I’m gonna go ahead and climb up to the top. Once I’m there, I’ll tie this rope and send it down for you two to climb up so it’s a bit easier for you both.
+
+	Willy began to climb up the steep cliff, showing off his impressive scaling abilities. Once at the top, Willy ties a figure eight follow loop around a jagged piece of rock, tugs at it to make sure it’s stable, then tosses the rope down to the researchers below. They grab a hold of the rope and begin to climb up to the top.
+	
+	At the peak, the researchers gaze upon the vast landscape and are taken aback by the sheer openness of everything that lays out before them. Nothing but rocky cliffs and mountains cover the surface with a few small, flat craters similar to the one they had landed in. -> mound_interactions
+	
+	= mound_interactions
+	* {Team ? (Iris)} [Iris]
+	    //(If Iris chosen)~
+	    At the peak of this mountain, there are a significant amount of plants that she didn’t see in the crater. Even in a barren landscape like this one, Iris is amazed to see a vast difference in species that have been able to root themselves into the stone and find enough nutrients to keep themselves alive. She collects as many samples as she can hold in her satchel and still feels like she’s missing some.
+	    
+    	Iris trips on a rock and scrapes the top layer of skin off of her shin.
+    
+    	Iris: Ooooh that is NOT good!!
+    	
+        //(If Ridan not chosen and Iris chosen)~~
+    	{Team !? (Ridan)} The other members of the crew turn back to look at Iris. None of them know anything beyond basic first aid. Iris opens her satchel, pulls out some bandages packed inside, and loosely wraps them around her leg. The other researchers help Iris to her feet and she walks with a slight limp for the rest of the expedition. 
+    
+        //(If Iris and Ridan chosen)~~
+    	{Team ? (Ridan)} Ridan: That looks painful! Let me take a look at it.
+    
+    	Ridan grabs Iris’s leg and pulls it towards him a bit roughly. He takes out a spray bottle and some bandages from his satchel.
+    
+    	Ridan: This should help you heal quicker and avoid any risk of infection. Keep it there for a few hours and the skin should grow over it by the time we’re done on the surface here!
+    
+    	Willy: It’s a good thing I remembered to pack up some first aid supplies!
+    
+    	Ridan sprays the disinfectant skin regrowth serum on Iris’s leg and wraps it up in a bandage before leaving her and going back to doing more research. Amazingly, Iris feels little remaining pain and is able to get back up and continue collecting specimens.
+    
+    	Willy: If you need help getting down from up here, don’t hesitate to ask!
+    
+    	Iris: Thanks Wil- I mean Sergeant!! I’ll definitely take you up on that offer! -> mound_interactions
+
+    * {Team ? (Lars)} [Lars]
+    //(If Lars chosen)
+    Unable to find any signs of life, Lars feels like he’s out of place researching on this planet. He gives up on trying to find any animal specimen and begins to collect some plants for Iris instead. -> mound_interactions
+    
+    * {Team ? (Lars, Iris)} [lars & Iris]
+    //(If Lars and Iris chosen)
+	Lars and Iris begin to walk with each other, Lars guiding the way and helping Iris to make sure she doesn’t fall again.
+
+	Iris: I’m really glad we’re getting to spend more time together. A planet like this is really cool to be able to do it on too!!
+
+	Lars: I’m happy to spend time with you no matter what planet we’re on!
+
+	The two of them laugh as Willy rolls his eyes in annoyance at the public flirting.
+
+	Willy: Alright love birds, let’s get a move on!! -> mound_interactions
+
+    * {Team !? (Iris)} [Crew]
+    //(If Iris not chosen)
+	Seeing as how the majority of the planet is barren, the researchers collect a few plants scattered around the ship and take a few samples of the rock on the planet as well. Recording the temperature of the atmosphere, they finish up everything they feel they need to do. -> mound_interactions
+    
+    *->
+	The researchers finish up everything they need to do on Cyprus 45-B climbing back down the mountain and returning to their ship in the crater. -> returning_to_ship
+    
+    == returning_to_ship
+    + [Head Back]
+    ~ Team = ()
+    ~ both_routes = false
+    -> ship_base
+    
