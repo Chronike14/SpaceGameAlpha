@@ -1,3 +1,5 @@
+== Prologue
+
 DEEP SPACE, 4587
 Aboard the S.S. Star Jumper
 -> prologue
@@ -15,9 +17,9 @@ Aboard the S.S. Star Jumper
 (Down the labs hallway Dr. Ridan Tyndale is in the doctor's office checking supplies and taking inventory, and Dr. Giorgio is in the main Research lab taking inventory and checking equipment.) 
 */
 C: (Checking a clipboard along with her cockpit display, talking to herself) Ok… Everyone seems to be on the ship with all their stuff... Right! Time to do a walkthrough and make sure this puppy is all ready to fly.
--> ship
+-> ship_base
 
-=== ship ===
+=== ship_base ===
 
 + Dorm Hallway
 -> dorms_hall
@@ -27,6 +29,10 @@ C: (Checking a clipboard along with her cockpit display, talking to herself) Ok�
 -> labs_hall
 + Open Tech Pad
 -> mission
+
+= winter_warning
+WD: (in writing) You better have taken off by now! We don’t have the time to sit around all day and you have some work that needs to be done, if you’re wanting to be paid and keep your job! I’ve sent you a list of exoplanets and descriptions based on our satellite data. I need you and your crew to go down and explore their surfaces! I don’t care what order you do them in, but it better get done fast!
+-> ship_base
 
 === dorms_hall ===
 This is a long hallway with 6 dorm rooms along the left side.
@@ -43,7 +49,7 @@ This is a long hallway with 6 dorm rooms along the left side.
 + Ridan Tyndale's Room
     -> rooms.ridan
 + [Back]
-    -> ship
+    -> ship_base
 
 === commons_hall ===
 + Commons Room
@@ -53,7 +59,7 @@ This is a long hallway with 6 dorm rooms along the left side.
 + Cargo Bay
     -> commons.cargobay
 + [Back]
-    -> ship
+    -> ship_base
 
 === labs_hall ===
 + Doctors Office
@@ -65,7 +71,7 @@ This is a long hallway with 6 dorm rooms along the left side.
 + Zoology Lab
     -> labs.zoology
 + [Back]
-    -> ship
+    -> ship_base
 
 === rooms ===
 = rebecca
@@ -257,50 +263,6 @@ C: I can’t wait to see all the new species we’re gonna come across throughou
 Breaking into the dark abyss, the Earth begins to trail behind them and the ship smooths out a bit, but still maintains an unusual amount of turbulence from the rough manor Rebecca handles the ship in. As Rebecca makes her way out of the Solar System, she receives a ping on a communications computer nearby. 
 + [Back]
 -> labs_hall
-/*
-=== manage ===
-
-+ [Observe]
-//dialogue about the characters and how they percieve to be
-    ** Capt. Rebecca
-    //description
-    -> manage
-    ** Giorgio
-    //description
-    -> manage
-    ** Willy
-    //description
-    -> manage
-    -- "What a weird bunch" Rebecca thought.
-    -> manage
-    
-+ [Interact]
-//who do you want to talk too
-    ++ [Capt. Rebecca]
-    //dialogue goes here
-    -> manage
-    ++ [Dr. Giorgio]
-    //dialogue goes here
-    -> manage
-    ++ [Willy]
-    //dialogue goes here
-    -> manage
-    ++ [Iris]
-    //dialogue goes here
-    -> manage
-    ++ [Lars]
-    //dialogue goes here
-    -> manage
-    ++ [Ridan]
-    //dialogue goes here
-    -> manage
-
--> DONE
-*/
-
-=== decision ===
-WD: (in writing) You better have taken off by now! We don’t have the time to sit around all day and you have some work that needs to be done, if you’re wanting to be paid and keep your job! I’ve sent you a list of exoplanets and descriptions based on our satellite data. I need you and your crew to go down and explore their surfaces! I don’t care what order you do them in, but it better get done fast!
--> ship
 
 === mission ===
 + Open Mission Brief
@@ -321,10 +283,10 @@ There are three planets I’ve tasked your crew with researching:
 
 + Pick-a-Planet Module
     ** Regis-B
-    -> DONE
+    -> ship
     ** Cyprus 45-B
     -> DONE
     ** X-23
     -> DONE
     
--> DONE
+-> END

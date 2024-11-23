@@ -1,14 +1,31 @@
+INCLUDE Revised Space Game.ink
+INCLUDE Prologue.ink
+INCLUDE Endings.ink
+
 LIST Team = Rebecca, Willy, Iris, Lars, Ridan
 VAR teamOne = ()
 VAR teamTwo = ()
 VAR teamThree = ()
 
 CONST planetChoice = 1
+
+-> Intro
 Regis B
+
 -> ship
 
+=== function teamAssign()
+    ~ teamOne = Team(1)
+    ~ teamTwo = Team(2)
+    ~ teamThree = Team(3)
+
+
 === ship ===
-->chosen_first
++ [Chosen First] ->chosen_first
++ [Chosen Second] -> chosen_second
++ [Chosen Third] -> chosen_third
+-> DONE
+
 == chosen_first
     Rebecca starts up the ship’s PA system and broadcasts a message to the entire crew.
     C: Alright everyone! We’re headed off to the first planet for our expedition! I’ve decided to start us with Regis B. It seems similar to our atmosphere so I figured it’d be a good start.
@@ -41,12 +58,7 @@ Regis B
     Moments later, the ship’s engine is turned off and Giorgio and Rebecca walk into the cargo bay together. The rest of the crew draws their attention to them.
 	Giorgio: I’ll be sending out a few of you to do the research we need! The rest of you will stay on the ship and do anything else to help contribute! I’ll be staying on the ship to continue my own work. -> expedition_choice
 
-    === function teamAssign()
-    ~ teamOne = Team(1)
-    ~ teamTwo = Team(2)
-    ~ teamThree = Team(3)
-    
-    == expedition_choice
+    = expedition_choice
     The Team Roster: {Team}    
         * [Captain Rebecca Monroe]
         //~Team += Rebecca
@@ -101,7 +113,7 @@ Regis B
     	Preparing to explore the planet the researchers have to decide where to start gathering research.
     -> explore
 
-== explore
+    = explore
     //CHOICE:
     * [Walk the shoreline]
     -> shoreline
@@ -140,7 +152,7 @@ Regis B
         Lars: It is nice just getting to walk the shore and take in the sights. It’s different from anything I’ve done before, that’s for sure.
         The two smile at each other warmly. (Third crew member) feels out of place, as though they’re the third wheel on a date.
         -> shoreline_interactions
-        
+    
     -
         The crew takes temperatures of the atmosphere and water, recording them to meet the required quota of research data and continues on their way. 
     *   {Team ? (Willy)} [Forest]
@@ -214,8 +226,9 @@ Regis B
 	Giorgio: Much better landing this time around Rebecca! I can tell you’re trying your best to be a good captain!
 	C: Thank you Giorgio! I’ll keep trying my hardest!
 	Moments later, the ship’s engine is turned off and Giorgio and Rebecca walk into the cargo bay together. The researchers all turn their attention to the two of them.
-	Giorgio: As you all know, I’ll be sending out a few of you to do the research we need! The people I don’t choose will stay on the ship and do any research that they can! Just like last time, I will be staying on the ship myself to continue my own work. -> Expedition_Choice
-	== Expedition_Choice
+	Giorgio: As you all know, I’ll be sending out a few of you to do the research we need! The people I don’t choose will stay on the ship and do any research that they can! Just like last time, I will be staying on the ship myself to continue my own work. -> expedition_choice
+	
+	= expedition_choice
     The Team Roster: {Team}    
         * [Captain Rebecca Monroe]
         //~Team += Rebecca
@@ -266,20 +279,21 @@ Regis B
         - else: -> team_with
         }
 			
-//{After the first choice:
+    //{After the first choice:
 		//(If Iris is not chosen) Iris gets a bit more antsy and giddy. She desperately wants to explore the scenery of this foreign planet.
 	//After the second choice:
-    //(If Iris is not chosen) Iris gets even more antsy and can’t contain herself. It’s taking everything in her not to scream out.
-		//After the third choice:
+        //(If Iris is not chosen) Iris gets even more antsy and can’t contain herself. It’s taking everything in her not to scream out.
+	//After the third choice:
 		//(If Iris is not chosen) Iris looks down sadly and looks as though she’s holding back tears.}
 	= team_with
 	Giorgio: Alright crew, Willy… (sarcastically) I mean Sergeant Willy, packed up everything you should need for the expedition. The rest of you staying on the ship, keep up the good work! Just another reminder, this is not a vacation!
 	The chosen crew of (choice 1), (choice 2), and (choice 3) finish packing up their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Regis B.
 	Looking around the planet, the researchers are met with bright light as the sun reflects off of the cerulean oceans sprawling to the horizon. The rhythmic splashing of the ocean’s currents on the shore and the salty smell of the atmosphere reminds the crew of beaches back on Earth. In the distance, the green peaks of neighboring islands can be made out. The air is heavy and humid creating a thick feeling all around them with tropical heat brushing over them. 
 	Preparing to explore the planet the researchers have to decide where to start gathering research.
-	-> Explore
-== Explore
-//CHOICE:
+	-> explore
+
+    = explore
+    //CHOICE:
     * [Walk the shoreline]
     -> shoreline
     * [Enter the inland forest]
@@ -288,7 +302,7 @@ Regis B
     * {Team ? (Willy)} [Venture out on the coastline, return in the forest]
     -> shoreline
 
- = shoreline
+    = shoreline
     Expedition Team: {Team}
 	The researchers walk the coastline and take in the scenery. The beautiful shoreline and tropical smells bring a serene sense of peace to all of them. -> shoreline_interactions
 	
@@ -388,17 +402,19 @@ Regis B
 	Giorgio: Perfect landing Rebecca! You’ve gotten much better at handling a ship with other people on it!
 	C: Thank you Gio! I’m glad I was able to be the captain for your research!
 	Moments later, the ship’s engine is turned off and Giorgio and Rebecca walk into the cargo bay together. The researchers all turn their attention to the two of them.
-	Giorgio: I’m sure you all know exactly what I’m gonna say, but I’ll be sending out three of you to do the final research we need! The people I don’t choose will stay on the ship and finish up all the research that they can! I think I’ll be heading out and helping with the field work this time around! -> expedition_Choice
-    == expedition_Choice
+	Giorgio: I’m sure you all know exactly what I’m gonna say, but I’ll be sending out three of you to do the final research we need! The people I don’t choose will stay on the ship and finish up all the research that they can! I think I’ll be heading out and helping with the field work this time around! -> expedition_choice
+    = expedition_choice
     The Team Roster: {Team}    
         * [Captain Rebecca Monroe]
         //~Team += Rebecca
-            Giorgio: I’m assuming you still need to stay on the ship, Rebecca? 
+            Giorgio: I’m assuming you still need to stay on the ship, Rebecca?
             Captain Rebecca: Yup! Gotta start getting the ship ready for the return trip!!
+            
         * [Willy Richardson]
         ~Team += Willy
         	Giorgio: Willy, you think this planet is up your alley? It’s covered in forests and I think you’d be great at leading the field team around!
         	Willy: It’s still sergeant, but I’ll head out there and take charge! I’d love to show people the way around!!
+        
         * [Iris Peacetree]
         ~Team += Iris
             Giorgio: Iris, this planet seems to be covered in different plant species. We could use someone like you out there to gather the best information we can.
@@ -417,6 +433,7 @@ Regis B
         	Giorgio: Ridan, you seem like you’d be a good fit for this expedition.
         	Ridan still isn’t eager to venture out but he isn’t adamantly opposed.
 			Ridan: I guess I can head out…
+		-
 		{
         - LIST_COUNT(Team) < 3: -> expedition_choice
         - else: -> team_with
@@ -433,17 +450,18 @@ Regis B
 	The chosen crew of (choice 1), (choice 2), and (choice 3) alongside Giorgio finish collecting their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Regis B.
 	Looking around the planet, the researchers are met with bright light as the sun reflects off of the cerulean oceans sprawling to the horizon. The rhythmic splashing of the ocean’s currents on the shore and the salty smell of the atmosphere reminds the crew of beaches back on Earth. In the distance, the green peaks of neighboring islands can be made out. The air is heavy and humid creating a thick feeling all around them with tropical heat brushing over them. 
 	Preparing to explore the planet the researchers have to decide where to start gathering research.
-	-> explorE
-== explorE
-//CHOICE:
-* [Walk the shoreline]
+	-> explore
+    
+    = explore
+    //CHOICE:
+    * [Walk the shoreline]
     -> shoreline
     * [Enter the inland forest]
     -> forest
     //(Only if Willy was chosen)
     * {Team ? (Willy)} [Venture out on the coastline, return in the forest]
     -> shoreline
-    
+
     = shoreline
     Expedition Team: {Team}
 	The researchers walk the coastline and take in the scenery. The beautiful shoreline and tropical smells bring a serene sense of peace to all of them. -> shoreline_interactions

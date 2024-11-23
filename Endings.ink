@@ -1,4 +1,3 @@
--> Endings
 == Endings
     + [Colonization]
     -> Colonization
