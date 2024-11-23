@@ -1,4 +1,4 @@
-INCLUDE Revised Space Game.ink
+INCLUDE Intro.ink
 INCLUDE Prologue.ink
 INCLUDE Endings.ink
 
