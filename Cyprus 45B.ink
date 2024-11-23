@@ -1,26 +1,5 @@
-LIST Team = Rebecca, Willy, Iris, Lars, Ridan
-VAR teamOne = ()
-VAR teamTwo = ()
-VAR teamThree = ()
 
-CONST planetChoice = 1
-
-VAR both_routes = false
-
-
-=== function teamAssign()
-    ~ teamOne = Team(1)
-    ~ teamTwo = Team(2)
-    ~ teamThree = Team(3)
-
-
-=== ship ===
-+ [Chosen First] ->chosen_first
-//+ [Chosen Second] -> chosen_second
-//+ [Chosen Third] -> chosen_third
--> DONE
-
-== chosen_first
+    = chosen_first
     Rebecca starts up the ship’s PA system and broadcasts a message to the entire crew.
 
 	C: Alright everyone! We’re headed off to the first planet for our expedition! I’ve decided to start us with Cyprus 45-B. It’s a colder planet orbiting a red dwarf star. Definitely one that will be fun for you to explore!
@@ -29,7 +8,7 @@ VAR both_routes = false
 
 	Willy walks around the cargo bay with a satchel in hand, browsing their supplies and packing rations of food, water, knives, rope, and other survival gear he thinks will be necessary for those going out on the expedition.
 
-Hearing Rebecca come onto the PA system again, Giorgio looks over his notes of the different crew members preparing to choose the team that will explore the surface.
+    Hearing Rebecca come onto the PA system again, Giorgio looks over his notes of the different crew members preparing to choose the team that will explore the surface.
 
 	C: Brace yourselves everyone! This ride’s about to get a lot rougher!
     + [Enter Planet Coordinates] -> coordinates
@@ -54,18 +33,18 @@ Hearing Rebecca come onto the PA system again, Giorgio looks over his notes of t
 	Giorgio: All crew members report to the cargo bay. We’ve got to prepare for our first expedition!
 
 	His stern voice implies urgency as he runs on Winter Daniels’s time. Ridan begrudgingly stands and makes his way to the back of the ship. Iris and Lars run into each other in the hallway and walk together to the cargo bay. Willy had never left the bay and sits on boxes waiting for the rest of the crew to arrive.
-    + [NEXT] -> cyprus_45b
+    + [NEXT] -> landing_cyprus_45b
 
-    = cyprus_45b
+    = landing_cyprus_45b
     Rebecca finishes the landing procedure just as roughly as she had when picking up the crew. Everyone felt a large rumble throughout the ship as it came to a halt. Iris falls down to the ground with Lars helping her up soon after. Ridan stumbles around but manages to catch himself saving himself from tumbling to the ground. Willy braces himself on the boxes he sits on top of. 
-
-	Giorgio: You have to work on that landing Captain. I know this is your ship, but other people are on it now and you hold responsibility for them.
-
-	C: Understood Doc! I’ll try ‘nd work on that!!
-
-	Moments later, the ship’s engine is turned off and Giorgio and Rebecca walk into the cargo bay together. The rest of the crew draws their attention to them.
-
-	Giorgio: I’ll be sending out a few of you to do the research we need! The rest of you will stay on the ship and do anything else to help contribute to our research! I’ll be staying on the ship to continue my own work. -> expedition_choice
+    
+    Giorgio: You have to work on that landing Captain. I know this is your ship, but other people are on it now and you hold responsibility for them.
+    
+    C: Understood Doc! I’ll try ‘nd work on that!!
+    
+    Moments later, the ship’s engine is turned off and Giorgio and Rebecca walk into the cargo bay together. The rest of the crew draws their attention to them.
+    
+    Giorgio: I’ll be sending out a few of you to do the research we need! The rest of you will stay on the ship and do anything else to help contribute to our research! I’ll be staying on the ship to continue my own work. -> expedition_choice
 
     = expedition_choice
     The Team Roster: {Team}    
@@ -130,6 +109,7 @@ Hearing Rebecca come onto the PA system again, Giorgio looks over his notes of t
 
 	The chosen crew of {Team} finish packing up their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Cyprus 45-B.
 
+== Cyprus_45B
 	Looking around the planet, the researchers are met with a dim planet covered in a red hue. There’s sparse vegetation spanning the area lacking any hue. Hard rock and rigid mounds fill the area creating a very mountainous feel to the planet. It’s almost dead silent in the area with subtle breezes blowing small rocks through the air to break the complete emptiness. Every breath is filled with a crisp feeling with a metallic smell and taste in the air. Lingering dust in the air causes a gritty feeling all around them. The frigid temperatures cause the crew to shiver.
 
 	Preparing to explore the planet the researchers have to decide where to start gathering research.
@@ -293,10 +273,5 @@ Hearing Rebecca come onto the PA system again, Giorgio looks over his notes of t
     
     *->
 	The researchers finish up everything they need to do on Cyprus 45-B climbing back down the mountain and returning to their ship in the crater. -> returning_to_ship
-    
-    == returning_to_ship
-    + [Head Back]
-    ~ Team = ()
-    ~ both_routes = false
-    -> ship_base
+-> DONE
     

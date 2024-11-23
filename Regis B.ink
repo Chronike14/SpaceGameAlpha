@@ -22,11 +22,13 @@ VAR both_routes = false
 
 === ship ===
 + [Chosen First] ->chosen_first
-+ [Chosen Second] -> chosen_second
-+ [Chosen Third] -> chosen_third
+//+ [Chosen Second] -> chosen_second
+//+ [Chosen Third] -> chosen_third
 -> DONE
 
-== chosen_first
+== Setup
+
+= chosen_first
     Rebecca starts up the ship’s PA system and broadcasts a message to the entire crew.
     C: Alright everyone! We’re headed off to the first planet for our expedition! I’ve decided to start us with Regis B. It seems similar to our atmosphere so I figured it’d be a good start.
     In her room as she finishes unpacking, Iris lets out a squeal of excitement at the prospect of discovering alien plants that are sure to be thriving on a planet similar to earth.
@@ -49,9 +51,9 @@ VAR both_routes = false
     The loud announcement wakes Ridan up once again and the rest of the crew is brought to attention. Giorgio makes his way to the cockpit and takes the PA system.
     Giorgio: All crew members report to the cargo bay. We’ve got to prepare for our first expedition!
     His stern voice implies urgency as he runs on Winter Daniels’s time. Ridan begrudgingly stands and makes his way to the back of the ship. Iris and Lars run into each other in the hallway and walk together to the cargo bay. Willy had never left the bay and sits on boxes waiting for the rest of the crew to arrive.
-    + [NEXT] -> regis_b
+    + [NEXT] -> landing_regis_b
 
-    = regis_b
+    = landing_regis_b
     Rebecca finishes the landing procedure just as roughly as she had when picking up the crew. Everyone felt a large rumble throughout the ship as it came to a halt. Iris falls down to the ground with Lars helping her up soon after. Ridan stumbles around but manages to catch himself saving himself from tumbling to the ground. Willy braces himself on the boxes he sits on top of. 
     Giorgio: You have to work on that landing Captain. I know this is your ship, but other people are on it now and you hold responsibility for them.
     C: Understood Doc! I’ll try ‘nd work on that!!
@@ -112,6 +114,8 @@ VAR both_routes = false
     	Looking around the planet, the researchers are met with bright light as the sun reflects off of the cerulean oceans sprawling to the horizon. The rhythmic splashing of the ocean’s currents on the shore and the salty smell of the atmosphere reminds the crew of beaches back on Earth. In the distance, the green peaks of neighboring islands can be made out. The air is heavy and humid creating a thick feeling all around them with tropical heat brushing over them. 
     	Preparing to explore the planet the researchers have to decide where to start gathering research.
     -> explore
+
+== Regis_B
 
     = explore
     //CHOICE:
@@ -209,7 +213,7 @@ VAR both_routes = false
     ~ both_routes = false
     -> ship_base
     
-== chosen_second
+= chosen_second
     Rebecca starts up the ship’s PA system and broadcasts a message to the entire crew.
 	C: Good work everyone! We’re headed off to the next planet for our expedition! I’ve decided to bring us to Regis B. It seems similar to our atmosphere so I figured it’d be a nice place to go!!
 	In her room reading a book on modern agricultural practices, Iris lets out a squeal of excitement at the prospect of discovering alien plants that are sure to be thriving on a planet similar to earth.
@@ -218,15 +222,19 @@ VAR both_routes = false
     Hearing Rebecca come onto the PA system again, Giorgio looks over his notes of the different crew members preparing to choose the team that will explore the surface.
 	C: Alright! Time to head off! I’ll try to make this trip a bit smoother than the last time!
     + [Enter Planet Coordinates] -> coordinates
+    
     = coordinates
 	Rebecca types the coordinates of Regis B into her INS charting the course through the stars. Pushing the ship into hyperdrive but ensuring not to max out the throttle, Rebecca prepares for another lightspeed launch across the cosmos. 
-	+ [NEXT] -> regis_b2
-	= regis_b2
-	The trip takes about four hours to get over to Regis B and as the ship nears its destination, Rebecca comes onto the PA system once again.
+	The trip takes about four hours to get over to Regis B and as the ship nears its destination, Rebecca comes onto the PA system once again. -> pa_system
+	
+	= pa_system
 	C: We’re finally here! Sorry it took so long, but we’re enterin’ Regis B’s atmosphere now!
 	Giorgio heads up to the cockpit for another announcement over the PA system.
 	Giorgio: You all know the drill by now. All crew members report to the cargo bay. We’ve got another expedition to head out on!
-	Giorgio is less stern, but has concerns about losing funding from Winter Daniels. Ridan leaves his office to join the company of the crew in the back of the ship. Iris and Lars meet up outside their labs so that they can walk to the back of the ship with one another. Willy was still in the bay making the final preparations for the expedition packs. 
+	Giorgio is less stern, but has concerns about losing funding from Winter Daniels. Ridan leaves his office to join the company of the crew in the back of the ship. Iris and Lars meet up outside their labs so that they can walk to the back of the ship with one another. Willy was still in the bay making the final preparations for the expedition packs.
+	+ [NEXT] -> regis_b2
+	
+	= regis_b2
 	Rebecca lands the crew much more smoothly this time around. There was still a rough jolt that shook the ship as it touched down, but significantly less than the last time. Lars holds Iris up to keep her from falling over again. Ridan plants his feet firmly stabilizing himself. Willy leans against a wall to help maintain his balance as he is ready for the touchdown.
 	Giorgio: Much better landing this time around Rebecca! I can tell you’re trying your best to be a good captain!
 	C: Thank you Giorgio! I’ll keep trying my hardest!
@@ -385,7 +393,7 @@ VAR both_routes = false
         //(If following the Choice 2 Path)
     	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship. -> returning_to_ship
 
-== chosen_third
+= chosen_third
     Rebecca starts up the ship’s PA system and broadcasts a message to the entire crew.
 	Captain Rebecca: Great work crew! We’re headed off to the last planet for our expedition! I’ve decided to finish Regis B. It seems similar to our atmosphere so I figured it’d be a nice place to remind us of home!!
 	In her lab researching the specimens gathered on the previous expeditions, Iris lets out a squeal of excitement at the prospect of discovering alien plants that are sure to be thriving on a planet similar to earth.
@@ -394,9 +402,11 @@ VAR both_routes = false
 	Hearing Rebecca come onto the PA system again, Giorgio looks over his notes of the different crew members preparing to choose the team that will explore the surface for the last time.
 	C: Smooth sailing from here on out! I think I’ve figured how to fly this to all of your comfort!
     + [Enter Planet Coordinates] -> coordinates
-    =coordinates
+    
+    = coordinates
 	Rebecca types the coordinates of Regis B into her INS charting the course through the stars. Pushing the ship into hyperdrive, setting it at a lower speed, Rebecca starts up another lightspeed launch across the cosmos. 
     + [NEXT] -> regis_b3
+    
     = regis_b3
 	The trip takes about two and a half hours to get over to Regis B and as the ship nears its destination, Rebecca comes onto the PA system once again.
 	C: We’re finally here! Hope it was a smooth trip for all of you! We’re touching down in Regis B as I speak!!
@@ -408,6 +418,7 @@ VAR both_routes = false
 	C: Thank you Gio! I’m glad I was able to be the captain for your research!
 	Moments later, the ship’s engine is turned off and Giorgio and Rebecca walk into the cargo bay together. The researchers all turn their attention to the two of them.
 	Giorgio: I’m sure you all know exactly what I’m gonna say, but I’ll be sending out three of you to do the final research we need! The people I don’t choose will stay on the ship and finish up all the research that they can! I think I’ll be heading out and helping with the field work this time around! -> expedition_choice
+    
     = expedition_choice
     The Team Roster: {Team}    
         * [Captain Rebecca Monroe]
