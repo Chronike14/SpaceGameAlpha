@@ -159,8 +159,7 @@ VAR both_routes = false
 	
 	*->   
         The crew takes temperatures of the atmosphere and water, recording them to meet the required quota of research data and continues on their way. 
-    	Finishing up everything they could do on the shoreline, the researchers decide that they’ve collected enough data to return to the ship and turn around, retracing their steps in the sand back to where they came from.
-    	++ [Head Back] -> returning_to_ship
+    	Finishing up everything they could do on the shoreline, the researchers decide that they’ve collected enough data to return to the ship and turn around, retracing their steps in the sand back to where they came from. -> returning_to_ship
 
     = forest
     {Team}
@@ -197,15 +196,15 @@ VAR both_routes = false
         //End of Choice 3:
     	Willy leads the crew through the forest, tracking the movement of astral bodies and listening for the sounds of the waves to find their way back to the ship.
     	Willy: This turf ain’t nuthin’! I could navigate us back to the ship with my eyes closed and both arms tied behind my back! I was hoping for a real struggle in the adventurin’ out here!
-    	The researchers find their way out of the forest with an efficient use of their time and head back onto the ship. Willy, feeling like he led them through the toughest journey of their lives, feels especially rewarded for his ability to lead them around the planet effectively.
-    	++ [Head Back] -> returning_to_ship
+    	The researchers find their way out of the forest with an efficient use of their time and head back onto the ship. Willy, feeling like he led them through the toughest journey of their lives, feels especially rewarded for his ability to lead them around the planet effectively. -> returning_to_ship
     
     *->
         //(If following the Choice 2 Path)
-    	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship.
-    	++ [Head Back] -> returning_to_ship
+    	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship. -> returning_to_ship
     
-    = returning_to_ship
+    == returning_to_ship
+    ++ [Head Back]
+    ~ Team = ()
     ~ both_routes = false
     -> ship_base
     
@@ -343,8 +342,7 @@ VAR both_routes = false
 	
 	*->
         The crew takes temperatures of the atmosphere and water, recording them to meet the required quota of research data and continues on their way.     
-    	Finishing up everything they could do on the shoreline, the researchers decide that they’ve collected enough data to return to the ship and turn around, retracing their steps in the sand back to where they came from. 
-	-> DONE
+    	Finishing up everything they could do on the shoreline, the researchers decide that they’ve collected enough data to return to the ship and turn around, retracing their steps in the sand back to where they came from. -> returning_to_ship
 	
     = forest
     {Team}
@@ -380,13 +378,11 @@ VAR both_routes = false
         //End of Choice 3:
     	Willy leads the crew through the forest, tracking the movement of astral bodies and listening for the sounds of the waves to find their way back to the ship.
     	Willy: This turf ain’t nuthin’! I could navigate us back to the ship with my eyes closed and both arms tied behind my back! I was hoping for a real struggle in the adventurin’ out here!
-    	The researchers find their way out of the forest with an efficient use of their time and head back onto the ship. Willy, feeling like he led them through the toughest journey of their lives, feels especially rewarded for his ability to lead them around the planet effectively. ->DONE
+    	The researchers find their way out of the forest with an efficient use of their time and head back onto the ship. Willy, feeling like he led them through the toughest journey of their lives, feels especially rewarded for his ability to lead them around the planet effectively. -> returning_to_ship
     
     *->
         //(If following the Choice 2 Path)
-    	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship.
-    
-    -> DONE
+    	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship. -> returning_to_ship
 
 == chosen_third
     Rebecca starts up the ship’s PA system and broadcasts a message to the entire crew.
