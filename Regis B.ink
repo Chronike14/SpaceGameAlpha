@@ -203,7 +203,7 @@ VAR both_routes = false
     	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship. -> returning_to_ship
     
     == returning_to_ship
-    ++ [Head Back]
+    + [Head Back]
     ~ Team = ()
     ~ both_routes = false
     -> ship_base
