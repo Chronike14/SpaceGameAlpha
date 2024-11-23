@@ -16,23 +16,24 @@ Aboard the S.S. Star Jumper
 
 (Down the labs hallway Dr. Ridan Tyndale is in the doctor's office checking supplies and taking inventory, and Dr. Giorgio is in the main Research lab taking inventory and checking equipment.) 
 */
-C: (Checking a clipboard along with her cockpit display, talking to herself) Ok… Everyone seems to be on the ship with all their stuff... Right! Time to do a walkthrough and make sure this puppy is all ready to fly.
+C: (Checking her Tech-Pad along with her cockpit display, talking to herself) Ok… Everyone seems to be on the ship with all their stuff... Right! Time to do a walkthrough and make sure this puppy is all ready to fly.
 -> ship_base
 
 === ship_base ===
-
+* {not winter_warning}{dorms_hall && commons_hall && labs_hall} [!NEW NOTIFICATION!] -> winter_warning
+-> winter_warning
 + Dorm Hallway
 -> dorms_hall
 + Commons Hallway
 -> commons_hall
 + Lab Hallway
 -> labs_hall
-+ Open Tech Pad
--> mission
++ Open Tech-Pad
+-> tech_pad
 
 = winter_warning
-WD: (in writing) You better have taken off by now! We don’t have the time to sit around all day and you have some work that needs to be done, if you’re wanting to be paid and keep your job! I’ve sent you a list of exoplanets and descriptions based on our satellite data. I need you and your crew to go down and explore their surfaces! I don’t care what order you do them in, but it better get done fast!
--> ship_base
+WD: You better have taken off by now! We don’t have the time to sit around all day and you have some work that needs to be done, if you’re wanting to be paid and keep your job! I’ve sent you a list of exoplanets and descriptions based on our satellite data. I need you and your crew to go down and explore their surfaces! I don’t care what order you do them in, but it better get done fast!
++ [Better Get a Move On] -> ship_base
 
 === dorms_hall ===
 This is a long hallway with 6 dorm rooms along the left side.
@@ -150,6 +151,8 @@ When entering the room, Rebecca notices that Ridan has not begun unpacking at al
     -> dorms_hall
 * Respect privacy and close the door.
     -> dorms_hall
++ [BACK]
+    -> dorms_hall
 
 === commons ===
 = room
@@ -264,29 +267,32 @@ Breaking into the dark abyss, the Earth begins to trail behind them and the ship
 + [Back]
 -> labs_hall
 
-=== mission ===
+=== tech_pad ===
 + Open Mission Brief
-There are three planets I’ve tasked your crew with researching:
-    
-    ++ Regis B:
-    A large blue planet about three times the size of Earth, mostly covered in water with archipelagos dotting the cerulean oceans with little green specks.
-    -> mission
-    ++ Cyprus 45-B:
-    A planet slightly smaller than Earth. Located near a red dwarf star, the planet’s temperature readings are extremely cold and the geography appears very homogenous and rocky.
-    -> mission
-    ++ X-23:
-    A planet about 1.5 times the size of Earth. X-23 is located in the system of a blue star causing the planet to have very high temperatures and a very dry climate. The surface is made up almost entirely of dry plateaus and sandy dunes with a desert like appearance.
-    -> mission
-    "W. Daniels"
-    ++ [Back]
-    -> mission
+There are three planets I’ve tasked your crew with researching: -> planets
 
 + Pick-a-Planet Module
     ** Regis-B
-    -> ship
+    -> chosen_first
     ** Cyprus 45-B
-    -> DONE
+    -> chosen_second
     ** X-23
-    -> DONE
+    -> chosen_third
+    ++ [BACK] -> tech_pad
+    
++ [CLOSE PAD] -> ship_base
+= planets
+    ++ Regis B:
+    A large blue planet about three times the size of Earth, mostly covered in water with archipelagos dotting the cerulean oceans with little green specks.
+    -> planets
+    ++ Cyprus 45-B:
+    A planet slightly smaller than Earth. Located near a red dwarf star, the planet’s temperature readings are extremely cold and the geography appears very homogenous and rocky.
+    -> planets
+    ++ X-23:
+    A planet about 1.5 times the size of Earth. X-23 is located in the system of a blue star causing the planet to have very high temperatures and a very dry climate. The surface is made up almost entirely of dry plateaus and sandy dunes with a desert like appearance.
+    -> planets
+    "W. Daniels"
+    ++ [BACK]
+    -> tech_pad
     
 -> END

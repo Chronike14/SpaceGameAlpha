@@ -9,10 +9,9 @@ VAR teamThree = ()
 
 CONST planetChoice = 1
 
--> Intro
-Regis B
+VAR both_routes = false
 
--> ship
+-> Intro
 
 === function teamAssign()
     ~ teamOne = Team(1)
@@ -121,6 +120,7 @@ Regis B
     -> forest
     //(Only if Willy was chosen)
     * {Team ? (Willy)} [Venture out on the coastline, return in the forest]
+    ~ both_routes = true
     -> shoreline
 
     = shoreline
@@ -153,24 +153,25 @@ Regis B
         The two smile at each other warmly. (Third crew member) feels out of place, as though they’re the third wheel on a date.
         -> shoreline_interactions
     
-    -
-        The crew takes temperatures of the atmosphere and water, recording them to meet the required quota of research data and continues on their way. 
-    *   {Team ? (Willy)} [Forest]
+    *   {both_routes} [Forest]
         //(If following the choice 3 path)
 	    Finishing up collecting data they need on the shoreline, the researchers decide to venture deeper inland to the forest covering the island. -> forest
-	-    
-    	Finishing up everything they could do on the shoreline, the researchers decide that they’ve collected enough data to return to the ship and turn around, retracing their steps in the sand back to where they came from. 
-	-> DONE
+	
+	*->   
+        The crew takes temperatures of the atmosphere and water, recording them to meet the required quota of research data and continues on their way. 
+    	Finishing up everything they could do on the shoreline, the researchers decide that they’ve collected enough data to return to the ship and turn around, retracing their steps in the sand back to where they came from.
+    	++ [Head Back] -> returning_to_ship
 
     = forest
     {Team}
     //Choice 2/End of Choice 3:
-	Entering into the vast forest, the crew is met with lush foliage and thick brush under their feet. It was hard to believe that they were on an island as they were surrounded by thick jungle with no sight of the shore.
+	Entering into the vast forest, the crew is met with lush foliage and thick brush under their feet. It was hard to believe that they were on an island as they were surrounded by thick jungle with no sight of the shore. -> forest_interactions
     
+    =forest_interactions
     * {Team ? (Iris)} [Iris]
         //(If Iris is on the expedition)
     	Iris: I don’t even know where to begin!! There are so so so many different species here I’ve never seen before. It’s all so foreign I have to get a little bit of everything!!
-    	Iris spends the next 30 minutes cutting away pieces of every plant she can find, keeping them in their own bags to research on the ship later. She tries to collect as many seeds, spores, and cones as possible to try and regrow these plants aboard the ship as well.
+    	Iris spends the next 30 minutes cutting away pieces of every plant she can find, keeping them in their own bags to research on the ship later. She tries to collect as many seeds, spores, and cones as possible to try and regrow these plants aboard the ship as well. ->forest_interactions
     
     * {Team ? (Lars)} [Lars]
         //(If Lars is on the expedition)
@@ -178,32 +179,36 @@ Regis B
     	Lars: Got it!!
     	Lars’s shout jolts the other two researchers awake and they approach him and the cage, peering at the animal they just trapped.
     	(Researcher 2): It’s kinda cute!
-    	Moving on, Lars decided to spare the time of everyone else that this is the only trap he will set. As the crew continues to venture through the forest, he picks up any bugs and smaller, easier to catch animals that he can.
+    	Moving on, Lars decided to spare the time of everyone else that this is the only trap he will set. As the crew continues to venture through the forest, he picks up any bugs and smaller, easier to catch animals that he can. ->forest_interactions
     
     * {Team ? (Lars, Iris)} [lars & Iris]
         //(If Iris and Lars chosen)
     	Iris clumsily trips over the vines lining the floor of the forest. Lars rushes over to help her up and make sure she’s ok.
     	Lars: Is everything alright, Iris? That looks like it could’ve hurt!
     	Iris: Yea, I’m alright I think! I’m used to tripping over and falling.
-    	Lars and Iris laugh together as Lars helps Iris stand up. The two of them continue on ahead, leaving (3rd crew member) trailing behind.
+    	Lars and Iris laugh together as Lars helps Iris stand up. The two of them continue on ahead, leaving (3rd crew member) trailing behind. ->forest_interactions
     	
-    * {Team != (Lars, Iris)} [Crew]
+    /* {Team != (Lars, Iris)} [Crew]
         //(If neither Lars nor Iris were chosen)
-    	The crew ventures through the interior of the forest. Knowing that they’re there to research the different components of the island, they grab random plants and insects and store them to bring back to the ship.
+    	The crew ventures through the interior of the forest. Knowing that they’re there to research the different components of the island, they grab random plants and insects and store them to bring back to the ship. ->forest_interactions */
     
-    -
-        //(If following the Choice 2 Path)
-    	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship.
     
-    * {Team ? (Willy)} [Leave]
+    * {both_routes} [Leave]
         //End of Choice 3:
     	Willy leads the crew through the forest, tracking the movement of astral bodies and listening for the sounds of the waves to find their way back to the ship.
     	Willy: This turf ain’t nuthin’! I could navigate us back to the ship with my eyes closed and both arms tied behind my back! I was hoping for a real struggle in the adventurin’ out here!
     	The researchers find their way out of the forest with an efficient use of their time and head back onto the ship. Willy, feeling like he led them through the toughest journey of their lives, feels especially rewarded for his ability to lead them around the planet effectively.
-    -
--> DONE
-
-->chosen_second
+    	++ [Head Back] -> returning_to_ship
+    
+    *->
+        //(If following the Choice 2 Path)
+    	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship.
+    	++ [Head Back] -> returning_to_ship
+    
+    = returning_to_ship
+    ~ both_routes = false
+    -> ship_base
+    
 == chosen_second
     Rebecca starts up the ship’s PA system and broadcasts a message to the entire crew.
 	C: Good work everyone! We’re headed off to the next planet for our expedition! I’ve decided to bring us to Regis B. It seems similar to our atmosphere so I figured it’d be a nice place to go!!
@@ -300,6 +305,7 @@ Regis B
     -> forest
     //(Only if Willy was chosen)
     * {Team ? (Willy)} [Venture out on the coastline, return in the forest]
+    ~ both_routes = true
     -> shoreline
 
     = shoreline
@@ -330,25 +336,26 @@ Regis B
         Lars: It is nice just getting to walk the shore and take in the sights. It’s different from anything I’ve done before, that’s for sure.
         The two smile at each other warmly. (Third crew member) feels out of place, as though they’re the third wheel on a date.
         -> shoreline_interactions
-        
-    -
-        The crew takes temperatures of the atmosphere and water, recording them to meet the required quota of research data and continues on their way. 
-    *   {Team ? (Willy)} [Forest]
+    
+    *   {both_routes} [Forest]
         //(If following the choice 3 path)
 	    Finishing up collecting data they need on the shoreline, the researchers decide to venture deeper inland to the forest covering the island. -> forest
-	-    
+	
+	*->
+        The crew takes temperatures of the atmosphere and water, recording them to meet the required quota of research data and continues on their way.     
     	Finishing up everything they could do on the shoreline, the researchers decide that they’ve collected enough data to return to the ship and turn around, retracing their steps in the sand back to where they came from. 
 	-> DONE
 	
-     = forest
+    = forest
     {Team}
     //Choice 2/End of Choice 3:
-	Entering into the vast forest, the crew is met with lush foliage and thick brush under their feet. It was hard to believe that they were on an island as they were surrounded by thick jungle with no sight of the shore.
-    
+	Entering into the vast forest, the crew is met with lush foliage and thick brush under their feet. It was hard to believe that they were on an island as they were surrounded by thick jungle with no sight of the shore. -> forest_interactions
+	
+    =forest_interactions
     * {Team ? (Iris)} [Iris]
         //(If Iris is on the expedition)
     	Iris: I don’t even know where to begin!! There are so so so many different species here I’ve never seen before. It’s all so foreign I have to get a little bit of everything!!
-    	Iris spends the next 30 minutes cutting away pieces of every plant she can find, keeping them in their own bags to research on the ship later. She tries to collect as many seeds, spores, and cones as possible to try and regrow these plants aboard the ship as well.
+    	Iris spends the next 30 minutes cutting away pieces of every plant she can find, keeping them in their own bags to research on the ship later. She tries to collect as many seeds, spores, and cones as possible to try and regrow these plants aboard the ship as well. -> forest_interactions
     
     * {Team ? (Lars)} [Lars]
         //(If Lars is on the expedition)
@@ -356,29 +363,30 @@ Regis B
     	Lars: Got it!!
     	Lars’s shout jolts the other two researchers awake and they approach him and the cage, peering at the animal they just trapped.
     	(Researcher 2): It’s kinda cute!
-    	Moving on, Lars decided to spare the time of everyone else that this is the only trap he will set. As the crew continues to venture through the forest, he picks up any bugs and smaller, easier to catch animals that he can.
+    	Moving on, Lars decided to spare the time of everyone else that this is the only trap he will set. As the crew continues to venture through the forest, he picks up any bugs and smaller, easier to catch animals that he can. -> forest_interactions
     
     * {Team ? (Lars, Iris)} [lars & Iris]
         //(If Iris and Lars chosen)
     	Iris clumsily trips over the vines lining the floor of the forest. Lars rushes over to help her up and make sure she’s ok.
     	Lars: Is everything alright, Iris? That looks like it could’ve hurt!
     	Iris: Yea, I’m alright I think! I’m used to tripping over and falling.
-    	Lars and Iris laugh together as Lars helps Iris stand up. The two of them continue on ahead, leaving (3rd crew member) trailing behind.
+    	Lars and Iris laugh together as Lars helps Iris stand up. The two of them continue on ahead, leaving (3rd crew member) trailing behind. -> forest_interactions
     	
-    * {Team != (Lars, Iris)} [Crew]
+    /* {Team != (Lars, Iris)} [Crew]
         //(If neither Lars nor Iris were chosen)
-    	The crew ventures through the interior of the forest. Knowing that they’re there to research the different components of the island, they grab random plants and insects and store them to bring back to the ship.
+    	The crew ventures through the interior of the forest. Knowing that they’re there to research the different components of the island, they grab random plants and insects and store them to bring back to the ship. -> forest_interactions */
     
-    -
-        //(If following the Choice 2 Path)
-    	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship.
-    
-    * {Team ? (Willy)} [Leave]
+    * {both_routes} [Leave]
         //End of Choice 3:
     	Willy leads the crew through the forest, tracking the movement of astral bodies and listening for the sounds of the waves to find their way back to the ship.
     	Willy: This turf ain’t nuthin’! I could navigate us back to the ship with my eyes closed and both arms tied behind my back! I was hoping for a real struggle in the adventurin’ out here!
-    	The researchers find their way out of the forest with an efficient use of their time and head back onto the ship. Willy, feeling like he led them through the toughest journey of their lives, feels especially rewarded for his ability to lead them around the planet effectively.
-    	-> DONE
+    	The researchers find their way out of the forest with an efficient use of their time and head back onto the ship. Willy, feeling like he led them through the toughest journey of their lives, feels especially rewarded for his ability to lead them around the planet effectively. ->DONE
+    
+    *->
+        //(If following the Choice 2 Path)
+    	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship.
+    
+    -> DONE
 
 == chosen_third
     Rebecca starts up the ship’s PA system and broadcasts a message to the entire crew.
@@ -434,6 +442,7 @@ Regis B
         	Ridan still isn’t eager to venture out but he isn’t adamantly opposed.
 			Ridan: I guess I can head out…
 		-
+		
 		{
         - LIST_COUNT(Team) < 3: -> expedition_choice
         - else: -> team_with
@@ -460,6 +469,7 @@ Regis B
     -> forest
     //(Only if Willy was chosen)
     * {Team ? (Willy)} [Venture out on the coastline, return in the forest]
+    ~ both_routes = true
     -> shoreline
 
     = shoreline
@@ -492,24 +502,25 @@ Regis B
         The two smile at each other warmly. (Third crew member) feels out of place, as though they’re the third wheel on a date.
         -> shoreline_interactions
         
-    -
-        The crew takes temperatures of the atmosphere and water, recording them to meet the required quota of research data and continues on their way. 
-    *   {Team ? (Willy)} [Forest]
+    *   {both_routes} [Forest]
         //(If following the choice 3 path)
 	    Finishing up collecting data they need on the shoreline, the researchers decide to venture deeper inland to the forest covering the island. -> forest
-	-    
+    
+    *->
+        The crew takes temperatures of the atmosphere and water, recording them to meet the required quota of research data and continues on their way.-    
     	Finishing up everything they could do on the shoreline, the researchers decide that they’ve collected enough data to return to the ship and turn around, retracing their steps in the sand back to where they came from. 
-	-> DONE
+	    -> Regular
 	
 	= forest
 	{Team}
     //Choice 2/End of Choice 3:
-	Entering into the vast forest, the crew is met with lush foliage and thick brush under their feet. It was hard to believe that they were on an island as they were surrounded by thick jungle with no sight of the shore.
+	Entering into the vast forest, the crew is met with lush foliage and thick brush under their feet. It was hard to believe that they were on an island as they were surrounded by thick jungle with no sight of the shore. -> forest_interactions
     
+    = forest_interactions
     * {Team ? (Iris)} [Iris]
         //(If Iris is on the expedition)
     	Iris: I don’t even know where to begin!! There are so so so many different species here I’ve never seen before. It’s all so foreign I have to get a little bit of everything!!
-    	Iris spends the next 30 minutes cutting away pieces of every plant she can find, keeping them in their own bags to research on the ship later. She tries to collect as many seeds, spores, and cones as possible to try and regrow these plants aboard the ship as well.
+    	Iris spends the next 30 minutes cutting away pieces of every plant she can find, keeping them in their own bags to research on the ship later. She tries to collect as many seeds, spores, and cones as possible to try and regrow these plants aboard the ship as well. -> forest_interactions
     
     * {Team ? (Lars)} [Lars]
         //(If Lars is on the expedition)
@@ -517,29 +528,30 @@ Regis B
     	Lars: Got it!!
     	Lars’s shout jolts the other two researchers awake and they approach him and the cage, peering at the animal they just trapped.
     	(Researcher 2): It’s kinda cute!
-    	Moving on, Lars decided to spare the time of everyone else that this is the only trap he will set. As the crew continues to venture through the forest, he picks up any bugs and smaller, easier to catch animals that he can.
+    	Moving on, Lars decided to spare the time of everyone else that this is the only trap he will set. As the crew continues to venture through the forest, he picks up any bugs and smaller, easier to catch animals that he can. -> forest_interactions
     
     * {Team ? (Lars, Iris)} [lars & Iris]
         //(If Iris and Lars chosen)
     	Iris clumsily trips over the vines lining the floor of the forest. Lars rushes over to help her up and make sure she’s ok.
     	Lars: Is everything alright, Iris? That looks like it could’ve hurt!
     	Iris: Yea, I’m alright I think! I’m used to tripping over and falling.
-    	Lars and Iris laugh together as Lars helps Iris stand up. The two of them continue on ahead, leaving (3rd crew member) trailing behind.
+    	Lars and Iris laugh together as Lars helps Iris stand up. The two of them continue on ahead, leaving (3rd crew member) trailing behind. -> forest_interactions
     	
-    * {Team != (Lars, Iris)} [Crew]
+    /* {Team != (Lars, Iris)} [Crew]
         //(If neither Lars nor Iris were chosen)
-    	The crew ventures through the interior of the forest. Knowing that they’re there to research the different components of the island, they grab random plants and insects and store them to bring back to the ship.
+    	The crew ventures through the interior of the forest. Knowing that they’re there to research the different components of the island, they grab random plants and insects and store them to bring back to the ship. -> forest_interactions */
     
-    -
-        //(If following the Choice 2 Path)
-    	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship.
-    
-    * {Team ? (Willy)} [Leave]
+    * {both_routes} [Leave]
         //End of Choice 3:
     	Willy leads the crew through the forest, tracking the movement of astral bodies and listening for the sounds of the waves to find their way back to the ship.
     	Willy: This turf ain’t nuthin’! I could navigate us back to the ship with my eyes closed and both arms tied behind my back! I was hoping for a real struggle in the adventurin’ out here!
-    	The researchers find their way out of the forest with an efficient use of their time and head back onto the ship. Willy, feeling like he led them through the toughest journey of their lives, feels especially rewarded for his ability to lead them around the planet effectively.
-    -> DONE
+    	The researchers find their way out of the forest with an efficient use of their time and head back onto the ship. Willy, feeling like he led them through the toughest journey of their lives, feels especially rewarded for his ability to lead them around the planet effectively. -> MasterResearchers
+    
+    *->
+        //(If following the Choice 2 Path)
+    	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship.
+    
+        -> Regular
 
 /*
 Choice 4:
@@ -573,5 +585,5 @@ Giorgio: Then it’s decided. We’re abandoning our mission and staying here. I
 
 The three on the expedition are easily convinced and they head back to the ship the alert the rest of the crew.
 
-COLONIZATION ENDING
+-> Colonization
 */
