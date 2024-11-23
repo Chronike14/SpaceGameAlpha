@@ -1,4 +1,8 @@
 LIST Team = Rebecca, Willy, Iris, Lars, Ridan
+VAR teamOne = ()
+VAR teamTwo = ()
+VAR teamThree = ()
+
 CONST planetChoice = 1
 Regis B
 -> ship
@@ -37,10 +41,15 @@ Regis B
     Moments later, the ship’s engine is turned off and Giorgio and Rebecca walk into the cargo bay together. The rest of the crew draws their attention to them.
 	Giorgio: I’ll be sending out a few of you to do the research we need! The rest of you will stay on the ship and do anything else to help contribute! I’ll be staying on the ship to continue my own work. -> expedition_choice
 
+    === function teamAssign()
+    ~ teamOne = Team(1)
+    ~ teamTwo = Team(2)
+    ~ teamThree = Team(3)
+    
     == expedition_choice
-    The Team Roster: {Team}
-    {LIST_COUNT(Team)} 
+    The Team Roster: {Team}    
         * [Captain Rebecca Monroe]
+        //~Team += Rebecca
             Giorgio: Rebecca, why don’t you get out there and explore a bit?
             C: I should probably stay on the ship and check to make sure all the systems are still raring to go!
             Giorgio: That makes sense. 
@@ -76,18 +85,18 @@ Regis B
     	
     	{
         - LIST_COUNT(Team) < 3: -> expedition_choice
-        - else: -> team
+        - else: -> team_with
         }
     = shared_smile
         Lars and Iris glance at each other sharing a warm smile.
         {
         - LIST_COUNT(Team) < 3: -> expedition_choice
-        - else: -> team
+        - else: -> team_with
         }
     
-    = team
+    = team_with
     	Giorgio: Alright crew! Those of you chosen finish getting ready to head out. The rest of you stay on the ship and keep doing the work expected of you. This is not a vacation!
-    	The chosen crew of (choice 1), (choice 2), and (choice 3) finish packing up their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Regis B.
+    	The chosen crew of {Team} finish packing up their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Regis B.
     	Looking around the planet, the researchers are met with bright light as the sun reflects off of the cerulean oceans sprawling to the horizon. The rhythmic splashing of the ocean’s currents on the shore and the salty smell of the atmosphere reminds the crew of beaches back on Earth. In the distance, the green peaks of neighboring islands can be made out. The air is heavy and humid creating a thick feeling all around them with tropical heat brushing over them. 
     	Preparing to explore the planet the researchers have to decide where to start gathering research.
     -> explore
@@ -103,69 +112,51 @@ Regis B
     -> coast_forest
 
 == shoreline
+Expedition Team: {Team}
 	The researchers walk the coastline and take in the scenery. The beautiful shoreline and tropical smells bring a serene sense of peace to all of them. 
-	{
-	- Team == (Lars, Iris): -> lars_iris
-	- Team ? (Lars): -> lars
-	- Team ? (Iris): -> iris
-	- else: -> crew
-	}
-	-> crew
-
-    = lars_iris
-        //(If Lars and Iris are on the expedition)
-        Iris: I always wished to visit the beaches on Earth more. I never really had the chance to just walk the coastline like this with someone. It’s so exciting to be somewhere new and get an experience like this!!
-        Lars: It is nice just getting to walk the shore and take in the sights. It’s different from anything I’ve done before, that’s for sure.
-        The two smile at each other warmly. (Third crew member) feels out of place, as though they’re the third wheel on a date. 
-        -> lars -> iris
     
-    = lars
+    * {Team ? (Lars)} [Lars]
         //(If Lars is on the expedition)
         Along the shore, Lars notices animal prints in the sand. He signals to the other researchers on the expedition to remain quiet and move slowly. He pulls out a net from his bag and begins to follow the prints. Hearing some ruffling in a nearby bush, he casts the net out and pulls it back, capturing the alien species and placing it in a cage.
-        
         Lars: Good start to a new planet! Already captured my first specimen!
     	The other crew members seem happy with his success and continue on their expedition. 
-    	-> crew
     
-    = iris
+    * {Team ? (Iris)} [Iris]
         //(If Iris is on the expedition)
     	Iris notices some seaweed like plants that washed onto shore. Putting a glove on her hand and taking out a small plastic bag, she picks up the plant and places it into the bag.
     	
     	Iris: Already got my first plant to research!! This is gonna be so so so much fun!! 
-    	-> crew
     
-    = crew
+    /* {Team != (Lars, Iris)} [Crew]
         //(If neither Iris nor Lars were chosen)
-    	The crew continues along the shoreline but fails to identify any specimen worth picking up to research. 
-    	-> finishing_coast
+    	The crew continues along the shoreline but fails to identify any specimen worth picking up to research. */
+    	
+    * {Team ? (Lars, Iris)} [lars & Iris]
+        //(If Lars and Iris are on the expedition)
+        Iris: I always wished to visit the beaches on Earth more. I never really had the chance to just walk the coastline like this with someone. It’s so exciting to be somewhere new and get an experience like this!!
+        Lars: It is nice just getting to walk the shore and take in the sights. It’s different from anything I’ve done before, that’s for sure.
+        The two smile at each other warmly. (Third crew member) feels out of place, as though they’re the third wheel on a date.
     
-    = finishing_coast
-        //(If following the choice 1 path) 
-    	The crew takes temperatures of the atmosphere and water, recording them to meet the required quota of research data and continues on their way. 
+    -
+        The crew takes temperatures of the atmosphere and water, recording them to meet the required quota of research data and continues on their way. 
     	Finishing up everything they could do on the shoreline, the researchers decide that they’ve collected enough data to return to the ship and turn around, retracing their steps in the sand back to where they came from. 
-    	-> ship
+    	-> DONE
 
 == coast_forest
     //(If following the choice 3 path)
 	Finishing up collecting data they need on the shoreline, the researchers decide to venture deeper inland to the forest covering the island. -> forest
 
 == forest
+{Team}
     //Choice 2/End of Choice 3:
-	Entering into the vast forest, the crew is met with lush foliage and thick brush under their feet. It was hard to believe that they were on an island as they were surrounded by thick jungle with no sight of the shore. -> DONE
-	
-    = lars_iris
-        //(If Iris and Lars chosen)
-    	Iris clumsily trips over the vines lining the floor of the forest. Lars rushes over to help her up and make sure she’s ok.
-    	Lars: Is everything alright, Iris? That looks like it could’ve hurt!
-    	Iris: Yea, I’m alright I think! I’m used to tripping over and falling.
-    	Lars and Iris laugh together as Lars helps Iris stand up. The two of them continue on ahead, leaving (3rd crew member) trailing behind. -> DONE
+	Entering into the vast forest, the crew is met with lush foliage and thick brush under their feet. It was hard to believe that they were on an island as they were surrounded by thick jungle with no sight of the shore.
     
     = iris
         //(If Iris is on the expedition)
     	Iris: I don’t even know where to begin!! There are so so so many different species here I’ve never seen before. It’s all so foreign I have to get a little bit of everything!!
-    	Iris spends the next 30 minutes cutting away pieces of every plant she can find, keeping them in their own bags to research on the ship later. She tries to collect as many seeds, spores, and cones as possible to try and regrow these plants aboard the ship as well. -> DONE
+    	Iris spends the next 30 minutes cutting away pieces of every plant she can find, keeping them in their own bags to research on the ship later. She tries to collect as many seeds, spores, and cones as possible to try and regrow these plants aboard the ship as well.
     
-    = lars
+    * {Team ? (Lars)} [Lars]
         //(If Lars is on the expedition)
     	Lars hears cries from different animals all around him in the jungle. Knowing he realistically won’t be able to capture them all, he lays a trap out putting bait into a cage meant for field research and instructs the crew to quietly wait with him in a nearby bush. After what felt like hours of waiting, the other members of the crew began drifting off as Lars patiently watched the cage. Soon thereafter, an animal looking like a small cat sneaks into the cage and begins eating the bait. Lars rushes over and closes the door trapping the animal inside.
     	Lars: Got it!!
@@ -173,6 +164,13 @@ Regis B
     	(Researcher 2): It’s kinda cute!
     	Moving on, Lars decided to spare the time of everyone else that this is the only trap he will set. As the crew continues to venture through the forest, he picks up any bugs and smaller, easier to catch animals that he can. -> DONE
     
+    * {Team ? (Lars, Iris)} [lars & Iris]
+        //(If Iris and Lars chosen)
+    	Iris clumsily trips over the vines lining the floor of the forest. Lars rushes over to help her up and make sure she’s ok.
+    	Lars: Is everything alright, Iris? That looks like it could’ve hurt!
+    	Iris: Yea, I’m alright I think! I’m used to tripping over and falling.
+    	Lars and Iris laugh together as Lars helps Iris stand up. The two of them continue on ahead, leaving (3rd crew member) trailing behind.
+    	
     = crew
         //(If neither Lars nor Iris were chosen)
     	The crew ventures through the interior of the forest. Knowing that they’re there to research the different components of the island, they grab random plants and insects and store them to bring back to the ship. -> DONE
