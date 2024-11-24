@@ -273,11 +273,12 @@ There are three planets I’ve tasked your crew with researching: -> planets
 
 + Pick-a-Planet Module
     ** Regis-B
-    -> chosen_first
+    ~ Planets(Regis)
+    -> Setup(Planets)
     ** Cyprus 45-B
-    -> chosen_second
+    -> Setup
     ** X-23
-    -> chosen_third
+    -> Setup
     ++ [BACK] -> tech_pad
     
 + [CLOSE PAD] -> ship_base

@@ -107,7 +107,7 @@
     = team_with
     	Giorgio: Alright crew! Those of you chosen finish getting ready to head out. The rest of you stay on the ship and keep doing the work expected of you. This is not a vacation!
 
-	The chosen crew of {Team} finish packing up their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Cyprus 45-B.
+	The chosen crew of {Team} finish packing up their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Cyprus 45-B. -> Cyprus_45B
 
 == Cyprus_45B
 	Looking around the planet, the researchers are met with a dim planet covered in a red hue. There’s sparse vegetation spanning the area lacking any hue. Hard rock and rigid mounds fill the area creating a very mountainous feel to the planet. It’s almost dead silent in the area with subtle breezes blowing small rocks through the air to break the complete emptiness. Every breath is filled with a crisp feeling with a metallic smell and taste in the air. Lingering dust in the air causes a gritty feeling all around them. The frigid temperatures cause the crew to shiver.

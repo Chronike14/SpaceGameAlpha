@@ -8,7 +8,9 @@ VAR teamOne = ()
 VAR teamTwo = ()
 VAR teamThree = ()
 
-CONST planetChoice = 1
+LIST Planets = Regis, Cyprus, X
+VAR planetState = 0
+VAR planetName = ""
 
 VAR both_routes = false
 
@@ -20,15 +22,22 @@ VAR both_routes = false
     ~ teamThree = Team(3)
 
 
-=== ship ===
-+ [Chosen First] ->chosen_first
-//+ [Chosen Second] -> chosen_second
-//+ [Chosen Third] -> chosen_third
--> DONE
+=== function planet_jump(planetName, ref thingToChange)
+    ~planetState++
+    +   {thingToChange == false} [Chart Course to {planetName}]
+        "[Setting Coordinates to {planetName}]"
+        ~ thingToChange = true
+        -> do_setup.done
+    
 
-== Setup
+== Setup(Planet)
+    //Take input info of planet's name and which choice were on and then pick the right part of the story
+    ~ planetName = Planets
+    <- planet_jump("regis", Planets)
+    
+    ->DONE
 
-= chosen_first
+== Regis_chosen_first
     Rebecca starts up the ship’s PA system and broadcasts a message to the entire crew.
     C: Alright everyone! We’re headed off to the first planet for our expedition! I’ve decided to start us with Regis B. It seems similar to our atmosphere so I figured it’d be a good start.
     In her room as she finishes unpacking, Iris lets out a squeal of excitement at the prospect of discovering alien plants that are sure to be thriving on a planet similar to earth.
@@ -110,13 +119,12 @@ VAR both_routes = false
     
     = team_with
     	Giorgio: Alright crew! Those of you chosen finish getting ready to head out. The rest of you stay on the ship and keep doing the work expected of you. This is not a vacation!
-    	The chosen crew of {Team} finish packing up their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Regis B.
-    	Looking around the planet, the researchers are met with bright light as the sun reflects off of the cerulean oceans sprawling to the horizon. The rhythmic splashing of the ocean’s currents on the shore and the salty smell of the atmosphere reminds the crew of beaches back on Earth. In the distance, the green peaks of neighboring islands can be made out. The air is heavy and humid creating a thick feeling all around them with tropical heat brushing over them. 
-    	Preparing to explore the planet the researchers have to decide where to start gathering research.
-    -> explore
+    	The chosen crew of {Team} finish packing up their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Regis B. -> Regis_B
 
-== Regis_B
-
+==Regis_B
+    Looking around the planet, the researchers are met with bright light as the sun reflects off of the cerulean oceans sprawling to the horizon. The rhythmic splashing of the ocean’s currents on the shore and the salty smell of the atmosphere reminds the crew of beaches back on Earth. In the distance, the green peaks of neighboring islands can be made out. The air is heavy and humid creating a thick feeling all around them with tropical heat brushing over them. 
+	Preparing to explore the planet the researchers have to decide where to start gathering research. -> explore
+    
     = explore
     //CHOICE:
     * [Walk the shoreline]
@@ -213,7 +221,7 @@ VAR both_routes = false
     ~ both_routes = false
     -> ship_base
     
-= chosen_second
+== Regis_chosen_second
     Rebecca starts up the ship’s PA system and broadcasts a message to the entire crew.
 	C: Good work everyone! We’re headed off to the next planet for our expedition! I’ve decided to bring us to Regis B. It seems similar to our atmosphere so I figured it’d be a nice place to go!!
 	In her room reading a book on modern agricultural practices, Iris lets out a squeal of excitement at the prospect of discovering alien plants that are sure to be thriving on a planet similar to earth.
@@ -301,7 +309,8 @@ VAR both_routes = false
 	= team_with
 	Giorgio: Alright crew, Willy… (sarcastically) I mean Sergeant Willy, packed up everything you should need for the expedition. The rest of you staying on the ship, keep up the good work! Just another reminder, this is not a vacation!
 	The chosen crew of (choice 1), (choice 2), and (choice 3) finish packing up their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Regis B.
-	Looking around the planet, the researchers are met with bright light as the sun reflects off of the cerulean oceans sprawling to the horizon. The rhythmic splashing of the ocean’s currents on the shore and the salty smell of the atmosphere reminds the crew of beaches back on Earth. In the distance, the green peaks of neighboring islands can be made out. The air is heavy and humid creating a thick feeling all around them with tropical heat brushing over them. 
+
+    Looking around the planet, the researchers are met with bright light as the sun reflects off of the cerulean oceans sprawling to the horizon. The rhythmic splashing of the ocean’s currents on the shore and the salty smell of the atmosphere reminds the crew of beaches back on Earth. In the distance, the green peaks of neighboring islands can be made out. The air is heavy and humid creating a thick feeling all around them with tropical heat brushing over them. 
 	Preparing to explore the planet the researchers have to decide where to start gathering research.
 	-> explore
 
@@ -393,7 +402,7 @@ VAR both_routes = false
         //(If following the Choice 2 Path)
     	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship. -> returning_to_ship
 
-= chosen_third
+== Regis_chosen_third
     Rebecca starts up the ship’s PA system and broadcasts a message to the entire crew.
 	Captain Rebecca: Great work crew! We’re headed off to the last planet for our expedition! I’ve decided to finish Regis B. It seems similar to our atmosphere so I figured it’d be a nice place to remind us of home!!
 	In her lab researching the specimens gathered on the previous expeditions, Iris lets out a squeal of excitement at the prospect of discovering alien plants that are sure to be thriving on a planet similar to earth.
