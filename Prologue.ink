@@ -276,9 +276,11 @@ There are three planets I’ve tasked your crew with researching: -> planets
     ~ Planets(Regis)
     -> Setup(Planets)
     ** Cyprus 45-B
-    -> Setup
+    ~ Planets(Cyprus)
+    -> Setup(Planets)
     ** X-23
-    -> Setup
+    ~ Planets(X)
+    -> Setup(Planets)
     ++ [BACK] -> tech_pad
     
 + [CLOSE PAD] -> ship_base
