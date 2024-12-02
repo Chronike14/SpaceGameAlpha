@@ -24,11 +24,11 @@ VAR both_routes = false
 
 === function planet_jump(planetName, ref thingToChange)
     ~planetState++
-    +   {thingToChange == false} [Chart Course to {planetName}]
+       {thingToChange == false} [Chart Course to {planetName}]
         "[Setting Coordinates to {planetName}]"
         ~ thingToChange = true
         -> do_setup.done
-    
+
 
 == Setup(Planet)
     //Take input info of planet's name and which choice were on and then pick the right part of the story
