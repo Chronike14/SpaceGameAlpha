@@ -22,21 +22,19 @@ VAR both_routes = false
     ~ teamThree = Team(3)
 
 
-=== function planet_jump(planetName, ref thingToChange)
+=== function planet_jump(ref planet, ref thingToChange)
     ~planetState++
-        {thingToChange == false} [Chart Course to {planetName}]
-        "[Setting Coordinates to {planetName}]"
+        {thingToChange == false} [Chart Course to {planet}]
+        "[Setting Coordinates to {planet}]"
         ~ thingToChange = true
         do_setup.done
         
 
-== Setup(Planet)
+== Regis_Setup
     //Take input info of planet's name and which choice were on and then pick the right part of the story
-    ~ planetName = Planets
-    -> planet_jump(planetName, Planets)
     {
-    - planetState = 1: -> Regis_chosen_first
-    - planetState = 2: -> Regis_chosen_second
+    - planetState == 1: -> Regis_chosen_first
+    - planetState == 2: -> Regis_chosen_second
     - else: -> Regis_chosen_third
     }
     ->DONE
@@ -125,7 +123,7 @@ VAR both_routes = false
     	Giorgio: Alright crew! Those of you chosen finish getting ready to head out. The rest of you stay on the ship and keep doing the work expected of you. This is not a vacation!
     	The chosen crew of {Team} finish packing up their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Regis B. -> Regis_B
 
-    =Regis_B
+    = Regis_B
     Looking around the planet, the researchers are met with bright light as the sun reflects off of the cerulean oceans sprawling to the horizon. The rhythmic splashing of the ocean’s currents on the shore and the salty smell of the atmosphere reminds the crew of beaches back on Earth. In the distance, the green peaks of neighboring islands can be made out. The air is heavy and humid creating a thick feeling all around them with tropical heat brushing over them. 
 	Preparing to explore the planet the researchers have to decide where to start gathering research. -> explore
     
