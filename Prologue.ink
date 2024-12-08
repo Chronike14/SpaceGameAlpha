@@ -280,10 +280,12 @@ There are three planets I’ve tasked your crew with researching: -> planets
     ~ Planets(Cyprus)
     //-> Setup(Planets)
     -> Cyprus_Setup
-    ** X-23
+    /*
+    X-23
     ~ Planets(X)
     //-> Setup(Planets)
     -> X_Setup
+    */
     ++ [BACK] -> tech_pad
     
 + [CLOSE PAD] -> ship_base
