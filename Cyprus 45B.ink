@@ -408,6 +408,13 @@
     * {Team ? Iris} [Iris]
         Iris looks around the ship and finds small, weed-like plants completely missing any color. They resemble the transparent, white appearing fish found in caves and at the bottom of the ocean. Fascinated by their ability to survive with such little light, she collects as many of the various plants she can find.
     
+        //(If Ridan not chosen and Iris chosen)
+        {Team !? (Ridan)}   Iris trips on a rock and scrapes the top layer of skin off of her shin.
+    
+    	    Iris: Ooooh that is NOT good!!
+    
+    	    The other members of the crew turn back to look at Iris. None of them know anything beyond basic first aid. Iris opens her satchel, pulls out some bandages packed inside, and loosely wraps them around her leg. The other researchers help Iris to her feet and she walks with a slight limp for the rest of the expedition. 
+    
         //(If Iris and Ridan chosen)
         {Team ? (Ridan, Iris)}    Iris trips on a rock and scrapes the top layer of skin off of her shin.
         
@@ -680,10 +687,7 @@ Hearing Rebecca come onto the PA system again, Giorgio looks over his notes of t
 
 	        Ridan: This should help you heal quicker and avoid any risk of infection. Keep it there for a few hours and the skin should grow over it by the time we’re done on the surface here!
 
-	        Ridan sprays the disinfectant skin regrowth serum on Iris’s leg and wraps it up in a bandage before leaving her and going back to doing more research. Amazingly, Iris feels little remaining pain and is able to get back up and continue collecting specimens.
-    
-        //(If Iris and Ridan chosen)
-        {Team ? (Ridan, Iris)}     -> nearby_interactions
+	        Ridan sprays the disinfectant skin regrowth serum on Iris’s leg and wraps it up in a bandage before leaving her and going back to doing more research. Amazingly, Iris feels little remaining pain and is able to get back up and continue collecting specimens. -> nearby_interactions
     
     //(If Lars chosen)
     * {Team ? (Lars)} [Lars]
@@ -713,56 +717,93 @@ Hearing Rebecca come onto the PA system again, Giorgio looks over his notes of t
     = path_interactions
     //(If Iris chosen)
     * {Team ? Iris} [Iris]
-    	
+        Iris looks around the bottom of the path under her feet and finds small, weed-like plants completely missing any color. They resemble the transparent, white appearing fish found in caves and at the bottom of the ocean. Fascinated by their ability to survive with such little light, she collects as many of the various plants she can find.
     
         //(If Ridan not chosen and Iris chosen)
         {Team !? (Ridan)}    
         
         //(If Iris and Ridan chosen)
-        {Team ? (Ridan)}	 -> path_interactions
+        {Team ? (Ridan)} Iris trips on a rock and scrapes the top layer of skin off of her shin.
+
+	Ridan: Ooh that looks painful! Let me take a look at it.
+
+	Ridan grabs Iris’s leg and pulls it towards him a bit roughly. He takes out a spray bottle and some bandages from his satchel.
+
+	Ridan: This should help you heal quicker and avoid any risk of infection. Keep it there for a few hours and the skin should grow over it by the time we’re done on the surface here!
+
+	Ridan sprays the disinfectant skin regrowth serum on Iris’s leg and wraps it up in a bandage before leaving her and going back to doing more research. Amazingly, Iris feels little remaining pain and is able to get back up and continue collecting specimens. -> path_interactions
     
     //(If Lars chosen)
     * {Team ? (Lars)} [Lars]
-         -> path_interactions
+        Unable to find any signs of life, Lars feels like he’s out of place researching on this planet. He gives up on trying to find any animal specimen and begins to collect some plants for Iris instead. -> path_interactions
     
     //(If Lars and Iris chosen)
     * {Team ? (Lars, Iris)}
-         -> path_interactions
+        Lars and Iris begin to walk with each other, Lars guiding the way and helping Iris to make sure she doesn’t fall again.
+
+	Iris: I’m really glad we’re getting to spend more time together. A planet like this is really cool to be able to do it on too!!
+
+	Lars: I’m happy to spend time with you no matter what planet we’re on!
+
+	The two of them laugh as the other researcher rolls their eyes in annoyance at the public flirting. -> path_interactions
     
     //(If Iris not chosen)
     * {Team !? (Iris)} [Crew]
-    	 -> path_interactions
+    	Seeing as how the majority of the planet is barren, the researchers collect a few plants scattered around the ship and take a few samples of the rock on the planet as well. Recording the temperature of the atmosphere, they finish up everything they feel they need to do. -> path_interactions
     
     *->
     The researchers finish up everything they need to do on Cyprus 45-B and find their way back onto the ship ready to head off of the planet. -> returning_to_ship
     
     = mound
     //Choice 3:
-    	 -> mound_interactions
+    	Willy leads the crew members to a steep and ridgid cliff a few hundred feet away from the ship. Appearing difficult to climb and worried about the crew’s safety, Willy takes the rope out of his satchel.
+
+	    Willy: I’m gonna go ahead and climb up to the top. Once I’m there, I’ll tie this rope and send it down for you two to climb up so it’s a bit easier for you both.
+
+	    Willy began to climb up the steep cliff, showing off his impressive scaling abilities. Once at the top, Willy ties a figure eight follow loop around a jagged piece of rock, tugs at it to make sure it’s stable, then tosses the rope down to the researchers below. They grab a hold of the rope and begin to climb up to the top. 
+        At the peak, the researchers gaze upon the vast landscape and are taken aback by the sheer openness of everything that lays out before them. Nothing but rocky cliffs and mountains cover the surface with a few small, flat craters similar to the one they had landed in. -> mound_interactions
     
     = mound_interactions
     //(If Iris chosen)
     * {Team ? (Iris)} [Iris]
-    	
-    
-    
-        //(If Ridan not chosen and Iris chosen)
-        {Team !? (Ridan)}	
-        
+        At the peak of this mountain, there are a significant amount of plants that she didn’t see in the crater. Even in a barren landscape like this one, Iris is amazed to see a vast difference in species that have been able to root themselves into the stone and find enough nutrients to keep themselves alive. She collects as many samples as she can hold in her satchel and still feels like she’s missing some.
+
         //(If Iris and Ridan chosen)
-        {Team ? (Ridan)}	 -> mound_interactions
+        {Team ? (Ridan)}	Iris trips on a rock and scrapes the top layer of skin off of her shin.
+
+	Ridan: Ooh that looks painful! Let me take a look at it.
+
+	Ridan grabs Iris’s leg and pulls it towards him a bit roughly. He takes out a spray bottle and some bandages from his satchel.
+
+	Ridan: This should help you heal quicker and avoid any risk of infection. Keep it there for a few hours and the skin should grow over it by the time we’re done on the surface here!
+
+	Willy: It’s a good thing I remembered to pack up some first aid supplies!
+
+	Ridan sprays the disinfectant skin regrowth serum on Iris’s leg and wraps it up in a bandage before leaving her and going back to doing more research. Amazingly, Iris feels little remaining pain and is able to get back up and continue collecting specimens.
+
+	Willy: If you need help getting down from up here, don’t hesitate to ask!
+
+	Iris: Thanks Wil- I mean Sergeant!! I’ll definitely take you up on that offer! -> mound_interactions
     
     (If Lars chosen)
     * {Team ? (Lars)} [Lars]
-    	 -> mound_interactions
+    	Unable to find any signs of life, Lars feels like he’s out of place researching on this planet. He gives up on trying to find any animal specimen and begins to collect some plants for Iris instead. -> mound_interactions
     
     (If Lars and Iris chosen)
     * {Team ? (Lars, Iris)} [Lars & Iris]
-    	 -> mound_interactions
+    	Lars and Iris begin to walk with each other, Lars guiding the way and helping Iris to make sure she doesn’t fall again.
+
+	Iris: I’m really glad we’re getting to spend more time together. A planet like this is really cool to be able to do it on too!!
+
+	Lars: I’m happy to spend time with you no matter what planet we’re on!
+
+	The two of them laugh as Willy rolls his eyes in annoyance at the public flirting.
+
+	Willy: Alright love birds, let’s get a move on!! -> mound_interactions
     
     (If Iris not chosen)
     * {Team !? (Iris)} [Crew]
-    	 -> mound_interactions
+    	Seeing as how the majority of the planet is barren, the researchers collect a few plants scattered around the ship and take a few samples of the rock on the planet as well. Recording the temperature of the atmosphere, they finish up everything they feel they need to do. -> mound_interactions
     
     *->
     The researchers finish up everything they need to do on Cyprus 45-B climbing back down the mountain and returning to their ship in the crater. -> returning_to_ship
