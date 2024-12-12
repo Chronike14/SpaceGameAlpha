@@ -1,8 +1,8 @@
 
 == Cyprus_Setup
 {
-- planet_jump == 1: -> Cyprus_chosen_first
-- planet_jump == 2: -> Cyprus_chosen_second
+- planetState == 1: -> Cyprus_chosen_first
+- planetState == 2: -> Cyprus_chosen_second
 - else: -> Cyprus_chosen_third
 }
     -> DONE
@@ -286,7 +286,7 @@
 == Cyprus_chosen_second
     Rebecca starts up the ship’s PA system and broadcasts a message to the entire crew.
 
-	C: Good work everyone! We’re headed off to the next planet for our expedition! I’ve decided to bring us to Regis B. It seems similar to our atmosphere so I figured it’d be a nice place to go!!
+	C: Good work everyone! We’re headed off to the next planet for our expedition! I’ve decided to bring us to Cyprus 45-B. It seems similar to our atmosphere so I figured it’d be a nice place to go!!
 
 	Iris grabs a book on plants able to survive in colder and more barren climates. Parsing through the pages to see what she should be looking out for.
 
@@ -373,12 +373,6 @@
         - LIST_COUNT(Team) < 3: -> expedition_choice
         - else: -> team_with
         }
-    = shared_smile
-        Lars and Iris glance at each other sharing a warm smile.
-        {
-        - LIST_COUNT(Team) < 3: -> expedition_choice
-        - else: -> team_with
-        }
     
     = team_with
     Giorgio: Alright crew, Willy… (sarcastically) I mean Sergeant Willy, packed up everything you should need for the expedition. The rest of you staying on the ship, keep up the good work! Just another reminder, this is not a vacation!
@@ -404,7 +398,8 @@
     	Scared of the potential dangers of falling or getting trapped on this rugged terrain, the researchers choose to stay in the clearing where the ship landed and avoid any chance of injury. -> mound_interactions
     
     = nearby_interactions
-    //(If Iris chosen)
+    {Team}
+    //(If Iris Chosen)
     * {Team ? Iris} [Iris]
         Iris looks around the ship and finds small, weed-like plants completely missing any color. They resemble the transparent, white appearing fish found in caves and at the bottom of the ocean. Fascinated by their ability to survive with such little light, she collects as many of the various plants she can find.
     

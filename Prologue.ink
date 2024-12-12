@@ -272,17 +272,18 @@ Breaking into the dark abyss, the Earth begins to trail behind them and the ship
 There are three planets I’ve tasked your crew with researching: -> planets
 
 + Pick-a-Planet Module
+    {planetState}
     ** Regis-B
-    ~ Planets(Regis)
+    ~ planetState ++
     //-> Setup(Planets)
     -> Regis_Setup
     ** Cyprus 45-B
-    ~ Planets(Cyprus)
+    ~ planetState ++
     //-> Setup(Planets)
     -> Cyprus_Setup
     /*
     X-23
-    ~ Planets(X)
+    ~ planetState ++
     //-> Setup(Planets)
     -> X_Setup
     */

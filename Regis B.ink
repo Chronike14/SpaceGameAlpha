@@ -44,7 +44,7 @@ VAR both_routes = false
     C: Alright everyone! We’re headed off to the first planet for our expedition! I’ve decided to start us with Regis B. It seems similar to our atmosphere so I figured it’d be a good start.
     In her room as she finishes unpacking, Iris lets out a squeal of excitement at the prospect of discovering alien plants that are sure to be thriving on a planet similar to earth.
     In the animal lab, Lars begins preparing crates for any fauna that roam this planet's surface. 
-    Willy walks around the cargo bay with a satchel in hand, browsing their supplies and packing rations of food, water, knives, rope, and other survival gear he thinks will be necessary for those going out on the expedition.
+    Willy walks around the cargo bay with a satchel in hand, browsing their supplies and packing rations of food, water, knives, rope, and other survival gear he thinks will be necessary for those going out on the expedition. 
     Hearing Rebecca come onto the PA system again, Giorgio looks over his notes of the different crew members preparing to choose the team that will explore the surface.
     C: Brace yourselves everyone! This ride’s about to get a lot rougher!
     + [Enter Planet Coordinates] -> coordinates
@@ -475,7 +475,7 @@ VAR both_routes = false
 		
 	= team_with
 	Giorgio: Alright crew, Sergeant Willy packed up all the supplies we’ll need for the expedition. Everyone staying on the ship, I trust that you’ll keep doing your work! Last reminder, this still is not a vacation!
-	The chosen crew of (choice 1), (choice 2), and (choice 3) alongside Giorgio finish collecting their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Regis B.
+	The chosen crew of {Team} alongside Giorgio finish collecting their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Regis B.
 	Looking around the planet, the researchers are met with bright light as the sun reflects off of the cerulean oceans sprawling to the horizon. The rhythmic splashing of the ocean’s currents on the shore and the salty smell of the atmosphere reminds the crew of beaches back on Earth. In the distance, the green peaks of neighboring islands can be made out. The air is heavy and humid creating a thick feeling all around them with tropical heat brushing over them. 
 	Preparing to explore the planet the researchers have to decide where to start gathering research.
 	-> explore
