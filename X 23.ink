@@ -2,9 +2,9 @@
 == X_Setup
 //Take input info of planet's name and which choice were on and then pick the right part of the story
     {
-    - planetState == 1: -> Regis_chosen_first
-    - planetState == 2: -> Regis_chosen_second
-    - else: -> Regis_chosen_third
+    - planetState == 1: -> X_chosen_first
+    - planetState == 2: -> X_chosen_second
+    - else: -> X_chosen_third
     }
     ->DONE
 
@@ -239,7 +239,8 @@
         Lars and Iris glance at each other sharing a warm smile.
         {
         - LIST_COUNT(Team) < 3: -> team_choice
-        - else: -> team_with
+        - else: 
+        + [That makes three!] -> team_with
         }
     
     = team_with
@@ -266,7 +267,7 @@
     
 	C: Brace yourselves everyone! This ride’s about to get a lot rougher!
     
-    + [...] -> enter_coordinates
+    + [PUNCH IN COORDINATES] -> enter_coordinates
     =enter_coordinates
 	Rebecca types the coordinates of X-23 into her Interplanetary Navigation System, or INS, and charts the course through the stars. Starting to push the ship into max hyperdrive, Rebecca prepares for a lightspeed launch across the cosmos. 
     
@@ -301,5 +302,12 @@
 	Moments later, the ship’s engine is turned off and Giorgio and Rebecca walk into the cargo bay together. The rest of the crew draws their attention to them.
 
 	Giorgio: I’ll be sending out a few of you to do the research we need! The rest of you will stay on the ship and do anything else to help contribute to our research! I’ll be staying on the ship to continue my own work. -> team_choice
+		-> DONE
 	
-	-> DONE
+== X_chosen_second
+	
+	->DONE
+	
+== X_chosen_third
+
+    ->DONE

@@ -10,7 +10,7 @@ VAR teamTwo = ()
 VAR teamThree = ()
 
 LIST Planets = Regis, Cyprus, X
-VAR planetState = 0
+VAR planetState = 1
 VAR planetName = ""
 
 VAR both_routes = false
