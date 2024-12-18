@@ -1,3 +1,9 @@
+INCLUDE Intro.ink
+INCLUDE Endings.ink
+INCLUDE Cyprus 45B.ink
+INCLUDE X 23.ink
+
+
 == Prologue
 
 DEEP SPACE, 4587
@@ -78,18 +84,18 @@ This is a long hallway with 6 dorm rooms along the left side.
 = rebecca
 Captain Rebecca’s Room: Open. Unoccupied.
 
-Rebecca’s room seems very lived in. There are various posters and pictures of space including various solar systems, stars, planets, and galaxies hanging around her room. Flight manuals, ship maintenance books, and maps of space are scattered around her room and over the floor. Everything in her room seems well-loved and disorganized except for a picture of her family sitting in pristine condition on her nightstand.
+Rebecca’s room seems very lived in. There are various posters and pictures of space including various solar systems, stars, planets, and galaxies hanging on the walls. Flight manuals, ship maintenance books, and maps of space are scattered across the floor. Everything in her room seems well-loved and disorganized except for a picture of her family sitting in pristine condition on her nightstand.
 
 C: Ah… Home sweet home. Do I have to check my room again? I probably should since I was distracted with unpacking before. 
 
 //Things seen description
-Looking more closely at some of the books scattered around, Rebecca finds the original mission statement from Miss Daniels. She picks it up and places it upon her desk. While at her desk, she looks at the map she has sprawled out showing the star system that her crew would be traveling to with red circles around the planets Regis B, Cyprus 45-B, and X-23. On the edge of her desk is a book titled “Exploring Outer Galaxies: The Guide.” It is well-loved and reminds Rebecca of her time in flight school.
+Looking more closely at some of the books scattered around, Rebecca finds the original mission statement from Miss Daniels. She picks it up and places it upon her desk. While there, she looks at the map she has sprawled out showing the star system that her crew would be traveling to with red circles around the planets Regis B, Cyprus 45-B, and X-23. On the edge of her desk is a book titled “Exploring Outer Galaxies: The Guide.” It is well-loved and reminds Rebecca of her time in flight school.
     -> dorms_hall
 
 = willy
 Willy’s Room: Closed.
 
-C: Oh! This is Willy’s room. It seems like he is not in right now. Welp I’ll just assume that it's all ok.
+C: Oh! This is Willy’s room. It seems like he is not in right now. Welp, I’ll just assume that it's all ok.
     -> dorms_hall
 
 = iris
@@ -103,11 +109,11 @@ I: (muffled by the door) Come in!
 (Rebecca opens the door and enters Iris’ room)
 
 //Basic room description
-Immediately upon walking into her room, Rebecca is met with a rush of warmth. Looking around the room, Iris has already unpacked and decorated most of her room with a few boxes still remaining. In one corner of her room, she has a table with grow lights and various plants sitting under them. On all of her walls, fairy lights hang down from above illuminating the room. Iris has opted not to use the overhead lighting in her room allowing the sole light sources to be her grow lamps and these fairy lights. Also hanging on her walls she has various pictures of plants with an occasional image of her parents or siblings. She has a few posters portraying various sci-fi movies and games. In one of the boxes yet to be unpacked, Rebecca notices various books on horticulture, agriculture, botany, as well as the occasional teen sci-fi romance.
+Immediately upon walking into her room, Rebecca is met with a rush of warmth. Looking around, Iris has already unpacked and decorated most of her room with a few boxes still remaining. In one corner, she has a table with grow lights and various plants sitting under them. On all of her walls, fairy lights hang down from above illuminating the room. Iris has opted not to use the overhead lighting, allowing the sole light sources to be her grow lamps and the fairy lights. Also hanging on her walls she has various pictures of plants with an occasional image of her parents or siblings. She has a few posters portraying various sci-fi movies and games. In one of the boxes yet to be unpacked, Rebecca notices various books on horticulture, agriculture, botany, as well as the occasional teen sci-fi romance.
 
-I: Oh hi there! Captain Rebecca right? What can I help you with?
+I: Oh hi there! Captain Rebecca, right? What can I help you with?
 
-C: Hi! Yeah. I just need to check the ship before we are able to take off.
+C: Hi! Yeah, I just need to check the ship before we are able to take off.
 
 I: Oh yeah no problem! Please feel free to look around.
 
@@ -117,13 +123,13 @@ I: Oh yeah no problem! Please feel free to look around.
 = giorgio
 Dr. Giorgio’s Room: Closed.
 
-C: And this is Dr. Giorgio’s room. Looks like he is probably in his lab. I’m sure his room is fine.
+C: And this is Dr. Giorgio’s room. He's likely in his lab. I’m sure his room is fine.
     -> dorms_hall
 
 = lars
 Lars’ Room: Open. Occupied.
 
-C: Ok and this here appears to be Lars Clarkson’s room.
+C: Ok and this is Lars Clarkson’s room.
 (Rebecca knocks on the door)
 
 L: (Muffled by door) Uh… Yeah?
@@ -145,7 +151,7 @@ Dr. Ridan’s Room: Open. Unoccupied.
 
 Captain Rebeccs walks up to the last room in the hallway. She sees that the door to this room is slightly ajar. Her tablet says that the last room belongs to Dr. Ridan.
 
-C: Hmm. It seems like Dr. Ridan is not in his room, but his door is open for some reason. Maybe he left it open by accident. I should respect his privacy and not snoop through his room. On the other hand I do technically have to check everything before takeoff.
+C: Hmm. It seems like Dr. Ridan is not in his room, but his door is open for some reason. Maybe he left it open by accident. I should respect his privacy and not snoop through his room. On the other hand I do technically have to check everything before takeoff...
 * Enter and snoop.
 When entering the room, Rebecca notices that Ridan has not begun unpacking at all, with a few boxes having their lids open but nothing taken out or spread around the room. There is a life size anatomical model of a human hanging in one corner of his room next to a full model of a human skeleton. Overall, his room feels very empty save for a few bottles containing an unknown liquid scattered around his desk and nightstand.
     -> dorms_hall
@@ -157,7 +163,7 @@ When entering the room, Rebecca notices that Ridan has not begun unpacking at al
 === commons ===
 = room
 Common Room: Open. Unoccupied.
-Rebecca walks into the common room. With everyone still working hard getting prepared for the trip ahead of them, the common room remains untouched and empty by the members of the crew. There’s a large, red couch sitting on one of the walls with a flatscreen TV amplified to work in the depths of space hanging on the opposite wall. There’s a coffee table in between the two stacked with various magazines, lined with coasters, and the remote for the TV sitting on the edge. There are a few other arm chairs off the heads of the coffee table and an end table on either end of the couch, both completely empty except for a lamp on one. Rebecca ensures that all the furniture in the room is bolted to the floor so that it doesn’t move with the turbulence of the ship.
+Rebecca walks into the common room. With everyone still working hard getting prepared for the trip ahead of them, the area remains untouched by the members of the crew. There’s a large, red couch sitting on one of the walls with a flatscreen TV amplified to work in the depths of space hanging on the opposite wall. There’s a coffee table in between the two stacked with various magazines, lined with coasters, and the remote for the TV sitting on the edge. There are a few other arm chairs off the heads of the coffee table and an end table on either end of the couch, both completely empty except for a lamp on one. Rebecca ensures that all the furniture in the room is bolted to the floor so that it doesn’t move with the turbulence of the ship.
 
 C: Everything looks nice and secure! I really hope that we can spend some time together as a crew here!
 
@@ -185,7 +191,7 @@ C: Unfortunate that we couldn’t get a chef on this expedition. Maybe I can con
 
 = cargobay
 Cargobay: Open. Occupied.
-Walking into the cargo bay, Rebecca is met with a large, disorganized mess of a room. Boxes are scattered around the room, some are open while others are still sealed. All of the non-food supplies the crew will need during their exploration is stored in this room. Despite the size of the room, the mess of supplies still takes up the majority of the space present. At the back end of the room, there’s a large air-locked door leading outside of the ship for loading and unloading the ship at necessary points in time. Willy is in a far end of the room examining the contents of the boxes.
+Walking into the cargo bay, Rebecca is met with a large, disorganized mess of a room. Boxes are scattered around the room, some are open while others are still sealed. All of the non-food supplies the crew will need during their exploration is stored in this room. Despite the size of the room, the mess of supplies still takes up the majority of the space present. At the back, there’s a large air-locked door leading outside of the ship for loading and unloading the ship at necessary points in time. Willy is in a far end of the room examining the contents of the boxes.
 + Willy
 C: How’s it goin’ Sergeant?
 
@@ -250,7 +256,7 @@ G: Ok. Just please stay out of my way.
 
 = botany
 Plant Lab: Open. Unoccupied. 
-	Entering the plant lab, Rebecca saw short tables line the room in neat rows. Each table had large lights hanging low over them and the tables were covered in pots and grow beds. There was a desk on the farthest wall from the entrance that had a few papers scattered on it and a box opened with microscopes, soil probes, pH meters, and other instruments used to study plant life. While the room was largely empty save for a few flowers and fruits native to Earth in the far corner of the room, she knows that any plant specimen collected by the crew throughout their expedition would be brought here for Iris to research.
+	Entering the plant lab, Rebecca saw short tables line the room in neat rows. Each table had large lights hanging low over them and the tables were covered in pots and grow beds. There was a desk on the farthest wall from the entrance that had a few papers scattered on it and a box opened with microscopes, soil probes, pH meters, and other instruments used to study plant life. While the room was largely empty save for a few flowers and fruits native to Earth in the far corner, she knows that any plant specimen collected by the crew throughout their expedition would be brought here for Iris to research.
 
 C: I can’t wait until we have some more plants to fill up this room! You can take the girl out of the farm but that doesn’t mean the farmer leaves the girl!
 + [Back]
@@ -258,7 +264,7 @@ C: I can’t wait until we have some more plants to fill up this room! You can t
 
 = zoology
 Animal Lab: Closed.
-	While the animal lab was currently closed, Rebecca peered through the window to gaze into the room before her. On one side of the room, she saw countless cages and glass containers of various sizes fill the wall from floor to ceiling. Presumably, this is where any animal species would be kept for research by Lars. There was an operating table in the middle of the room where she could picture examinations of these alien species would occur. There were some sealed boxes on the desk in the corner of the room that Rebecca assumed would be filled with any of the tools needed to do the research required.
+	While the animal lab was currently closed, Rebecca peered through the window to gaze into the room before her. On one side of the room, she saw countless cages and glass containers of various sizes fill the wall from floor to ceiling. Presumably, this is where any animal species would be kept for research by Lars. There was an operating table at the center of the room where she could picture examinations of these alien species would occur. There were some sealed boxes on the desk in the corner of the room that Rebecca assumed would be filled with any of the tools needed to do the research required.
 
 C: I can’t wait to see all the new species we’re gonna come across throughout this trip!
 	After checking everything out, Rebecca notes that the crew members are all on board, everyone is tending to their rooms and unpacking as they need, and people begin to settle into their places. Finishing up the last system checks, Rebecca starts the ship’s engine. Breaking through the gravitational pull of Earth, the ship staggers and shakes with large amounts of turbulence. 

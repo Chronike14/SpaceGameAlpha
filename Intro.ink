@@ -1,10 +1,12 @@
-== Intro
+INCLUDE Prologue.ink
+
+== Start
 
 The engine slows revs to a stop as the Captain sighs in relief.
 
 Captain: "That was kind of a rough landing, but at least the ship is still in one piece for the new crew."
 
-In an excited hop, the woman left her seat and opened the hatch to the landing platform.
+With an excited hop, the woman left her seat and opened the hatch to the landing platform.
 
 Standing before a sleek metal ship of medium size, a crew of five researchers and professionals stood before the door that she had just opened.
 

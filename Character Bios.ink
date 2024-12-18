@@ -13,8 +13,8 @@
     -> Lars
 + [Ridan Tyndale]
     -> Ridan
-+ [Bill]
-    -> Bill
+#+ [Bill]
+    #-> Bill
 + [“Winter” Daniels]
     -> Daniels
 /*+ [Return]
@@ -87,16 +87,16 @@ Backstory: Ridan lived in the city for his entire childhood, which was pretty av
     -> Bios
 -> DONE
 
-=== Bill ===
-“Bill” 
-Title: Shopkeeper, Teacher, Children’s Entertainer (Former)
-Age: ∞
-Personality: Energetic, Fast-Paced, Way too active despite looking like he is in his 50’s
-Backstory: Not much of “Bill’s” past is known outside of the fact he has lived for a long time and that he used to run a children’s television show about science. At some point he ended up in space as a traveling merchant that everyone knows of and loves… Despite getting annoyed by how long and much he talks. 
-
-+ [Back]
-    -> Bios
--> DONE
+/*=== Bill ===
+#“Bill” 
+#Title: Shopkeeper, Teacher, Children’s Entertainer (Former)
+#Age: ∞
+#Personality: Energetic, Fast-Paced, Way too active despite looking like he is in his 50’s
+#Backstory: Not much of “Bill’s” past is known outside of the fact he has lived for a long time and that he used to run a children’s television show about science. At some point he ended up in space as a traveling merchant that everyone knows of and loves… Despite getting annoyed by how long and much he talks. 
+#
+#+ [Back]
+   # -> Bios
+-> DONE*/
 
 === Daniels ===
 “Winter” Daniels 

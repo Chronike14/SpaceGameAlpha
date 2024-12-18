@@ -1,3 +1,5 @@
+INCLUDE Intro.ink
+
 == Endings
     + [Colonization]
     -> Colonization

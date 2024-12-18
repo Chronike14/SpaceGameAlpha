@@ -1,3 +1,5 @@
+INCLUDE Intro.ink
+INCLUDE Endings.ink
 
 == Cyprus_Setup
 {
