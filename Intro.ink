@@ -1,4 +1,3 @@
-INCLUDE Prologue.ink
 
 == Start
 

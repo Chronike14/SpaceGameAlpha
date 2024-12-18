@@ -1,8 +1,3 @@
-INCLUDE Intro.ink
-INCLUDE Endings.ink
-INCLUDE Cyprus 45B.ink
-INCLUDE X 23.ink
-
 
 == Prologue
 

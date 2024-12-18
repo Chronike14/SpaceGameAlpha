@@ -1,4 +1,4 @@
-INCLUDE Intro.ink
+
 
 == Endings
     + [Colonization]

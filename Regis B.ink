@@ -1,6 +1,8 @@
 INCLUDE Intro.ink
+INCLUDE Prologue.ink
 INCLUDE Endings.ink
 INCLUDE Cyprus 45B.ink
+INCLUDE X 23.ink
 
 LIST Team = Rebecca, Willy, Ridan, Iris, Lars
 VAR teamOne = ()
@@ -13,7 +15,7 @@ VAR planetName = ""
 
 VAR both_routes = false
 
--> Intro
+-> Start
 
 === function teamAssign()
     ~ teamOne = Team(1)

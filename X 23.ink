@@ -1,7 +1,4 @@
-INCLUDE Intro.ink
-INCLUDE Endings.ink
-INCLUDE Cyprus 45B.ink
-INCLUDE Regis B.ink
+
 
 == X_Setup
 //Take input info of planet's name and which choice were on and then pick the right part of the story
