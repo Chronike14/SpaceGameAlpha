@@ -4,13 +4,13 @@ INCLUDE Endings.ink
 INCLUDE Cyprus 45B.ink
 INCLUDE X 23.ink
 
-LIST Team = Rebecca, Willy, Iris, Lars, Ridan
+LIST Team = Rebecca, Willy, Ridan, Iris, Lars
 VAR teamOne = ()
 VAR teamTwo = ()
 VAR teamThree = ()
 
 LIST Planets = Regis, Cyprus, X
-VAR planetState = 1
+VAR planetState = 0
 VAR planetName = ""
 
 VAR both_routes = false
@@ -166,7 +166,7 @@ VAR both_routes = false
         //(If Lars and Iris are on the expedition)
         Iris: I always wished to visit the beaches on Earth more. I never really had the chance to just walk the coastline like this with someone. It’s so exciting to be somewhere new and get an experience like this!!
         Lars: It is nice just getting to walk the shore and take in the sights. It’s different from anything I’ve done before, that’s for sure.
-        The two smile at each other warmly. (Third crew member) feels out of place, as though they’re the third wheel on a date.
+        The two smile at each other warmly. {LIST_MIN(Team)} feels out of place, as though they’re the third wheel on a date.
         -> shoreline_interactions
     
     *   {both_routes} [Forest]
@@ -219,9 +219,9 @@ VAR both_routes = false
     	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship. -> returning_to_ship
     
     == returning_to_ship
-    + [Head Back]
     ~ Team = ()
     ~ both_routes = false
+    + [Head Back]
     -> ship_base
     
 == Regis_chosen_second
@@ -294,13 +294,15 @@ VAR both_routes = false
     	
     	{
         - LIST_COUNT(Team) < 3: -> expedition_choice
-        - else: -> team_with
+        - else: 
+        + [THAT'S THREE!] -> team_with
         }
         = hold_hands
         Lars and Iris reach out to one another and hold hands.
         {
         - LIST_COUNT(Team) < 3: -> expedition_choice
-        - else: -> team_with
+        - else:
+        + [THAT'S THREE!] -> team_with
         }
 			
     //{After the first choice:
@@ -311,7 +313,7 @@ VAR both_routes = false
 		//(If Iris is not chosen) Iris looks down sadly and looks as though she’s holding back tears.}
 	= team_with
 	Giorgio: Alright crew, Willy… (sarcastically) I mean Sergeant Willy, packed up everything you should need for the expedition. The rest of you staying on the ship, keep up the good work! Just another reminder, this is not a vacation!
-	The chosen crew of (choice 1), (choice 2), and (choice 3) finish packing up their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Regis B.
+	The chosen crew of {Team} finish packing up their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Regis B.
 
     Looking around the planet, the researchers are met with bright light as the sun reflects off of the cerulean oceans sprawling to the horizon. The rhythmic splashing of the ocean’s currents on the shore and the salty smell of the atmosphere reminds the crew of beaches back on Earth. In the distance, the green peaks of neighboring islands can be made out. The air is heavy and humid creating a thick feeling all around them with tropical heat brushing over them. 
 	Preparing to explore the planet the researchers have to decide where to start gathering research.
@@ -354,7 +356,7 @@ VAR both_routes = false
         //(If Lars and Iris are on the expedition)
         Iris: I always wished to visit the beaches on Earth more. I never really had the chance to just walk the coastline like this with someone. It’s so exciting to be somewhere new and get an experience like this!!
         Lars: It is nice just getting to walk the shore and take in the sights. It’s different from anything I’ve done before, that’s for sure.
-        The two smile at each other warmly. (Third crew member) feels out of place, as though they’re the third wheel on a date.
+        The two smile at each other warmly. {LIST_MIN(Team)} feels out of place, as though they’re the third wheel on a date.
         -> shoreline_interactions
     
     *   {both_routes} [Forest]
@@ -471,15 +473,15 @@ VAR both_routes = false
 		 Lars and Iris link arms and cuddle up to one another.
         {
         - LIST_COUNT(Team) < 3: -> expedition_choice
-        - else: -> team_with
+        - else:
+        + [THAT'S THREE] -> team_with
         }
 		
 	= team_with
 	Giorgio: Alright crew, Sergeant Willy packed up all the supplies we’ll need for the expedition. Everyone staying on the ship, I trust that you’ll keep doing your work! Last reminder, this still is not a vacation!
 	The chosen crew of {Team} alongside Giorgio finish collecting their supplies. Giorgio enters in the code to open the cargo bay door and the crew steps out onto Regis B.
 	Looking around the planet, the researchers are met with bright light as the sun reflects off of the cerulean oceans sprawling to the horizon. The rhythmic splashing of the ocean’s currents on the shore and the salty smell of the atmosphere reminds the crew of beaches back on Earth. In the distance, the green peaks of neighboring islands can be made out. The air is heavy and humid creating a thick feeling all around them with tropical heat brushing over them. 
-	Preparing to explore the planet the researchers have to decide where to start gathering research.
-	-> explore
+	Preparing to explore the planet the researchers have to decide where to start gathering research. -> explore
     
     = explore
     //CHOICE:
@@ -519,7 +521,7 @@ VAR both_routes = false
         //(If Lars and Iris are on the expedition)
         Iris: I always wished to visit the beaches on Earth more. I never really had the chance to just walk the coastline like this with someone. It’s so exciting to be somewhere new and get an experience like this!!
         Lars: It is nice just getting to walk the shore and take in the sights. It’s different from anything I’ve done before, that’s for sure.
-        The two smile at each other warmly. (Third crew member) feels out of place, as though they’re the third wheel on a date.
+        The two smile at each other warmly. {LIST_MIN(Team)} feels out of place, as though they’re the third wheel on a date.
         -> shoreline_interactions
         
     *   {both_routes} [Forest]
@@ -547,7 +549,9 @@ VAR both_routes = false
     	Lars hears cries from different animals all around him in the jungle. Knowing he realistically won’t be able to capture them all, he lays a trap out putting bait into a cage meant for field research and instructs the crew to quietly wait with him in a nearby bush. After what felt like hours of waiting, the other members of the crew began drifting off as Lars patiently watched the cage. Soon thereafter, an animal looking like a small cat sneaks into the cage and begins eating the bait. Lars rushes over and closes the door trapping the animal inside.
     	Lars: Got it!!
     	Lars’s shout jolts the other two researchers awake and they approach him and the cage, peering at the animal they just trapped.
-    	(Researcher 2): It’s kinda cute!
+    	~ Team -= Lars
+    	{LIST_RANDOM(Team)}: It's kinda cute!
+    	~ Team += Lars
     	Moving on, Lars decided to spare the time of everyone else that this is the only trap he will set. As the crew continues to venture through the forest, he picks up any bugs and smaller, easier to catch animals that he can. -> forest_interactions
     
     * {Team ? (Lars, Iris)} [lars & Iris]
@@ -555,7 +559,7 @@ VAR both_routes = false
     	Iris clumsily trips over the vines lining the floor of the forest. Lars rushes over to help her up and make sure she’s ok.
     	Lars: Is everything alright, Iris? That looks like it could’ve hurt!
     	Iris: Yea, I’m alright I think! I’m used to tripping over and falling.
-    	Lars and Iris laugh together as Lars helps Iris stand up. The two of them continue on ahead, leaving (3rd crew member) trailing behind. -> forest_interactions
+    	Lars and Iris laugh together as Lars helps Iris stand up. The two of them continue on ahead, leaving {LIST_MIN(Team)} trailing behind. -> forest_interactions
     	
     /* {Team != (Lars, Iris)} [Crew]
         //(If neither Lars nor Iris were chosen)
@@ -565,45 +569,27 @@ VAR both_routes = false
         //End of Choice 3:
     	Willy leads the crew through the forest, tracking the movement of astral bodies and listening for the sounds of the waves to find their way back to the ship.
     	Willy: This turf ain’t nuthin’! I could navigate us back to the ship with my eyes closed and both arms tied behind my back! I was hoping for a real struggle in the adventurin’ out here!
-    	The researchers find their way out of the forest with an efficient use of their time and head back onto the ship. Willy, feeling like he led them through the toughest journey of their lives, feels especially rewarded for his ability to lead them around the planet effectively. -> MasterResearchers
-    
+    	The researchers find their way out of the forest with an efficient use of their time and head back onto the ship. Willy, feeling like he led them through the toughest journey of their lives, feels especially rewarded for his ability to lead them around the planet effectively. -> secret
+    	
     *->
         //(If following the Choice 2 Path)
     	The researchers feel that they’ve collected sufficient amounts of data and turn around, stumbling their way through the woods to find their way back to the ship.
     
         -> Regular
 
-/*
-Choice 4:
-(Follow the path of Choice 3 up until the end/this path replaces end of choice 3 with this)
-
-Giorgio scouts the land around him, filling his mind with memories of Earth. 
-
-(If Lars, Iris, and Willy are on the expedition)
-
-Giorgio: What do you guys think?
-
-Willy: What do you mean?
-
-Giorgio: I mean, do you think this would be a good place to settle down?
-
-Iris looks over at Lars.
-
-Iris: I could get used to it here!
-
-Lars looks back at Iris
-
-Lars: It definitely seems like a viable option for people to come live!
-
-Willy rolls his eyes at the love birds.
-
-Willy: In terms of actual survivability, the atmosphere is breathable and the climate is similar to Earth’s with a good chance of being able to thrive off the land!
-
-Giorgio seems satisfied with the responses the crew gave. 
-
-Giorgio: Then it’s decided. We’re abandoning our mission and staying here. It’s time we break away from the stress and rigor with everything on Earth. Why not just kick back and try to thrive on our own off the land here?
-
-The three on the expedition are easily convinced and they head back to the ship the alert the rest of the crew.
-
--> Colonization
-*/
+    //(Follow the path of Choice 3 up until the end/this path replaces end of choice 3 with this)
+    = secret
+        Giorgio scouts the land around him, filling his mind with memories of Earth. 
+    //(If Lars, Iris, and Willy are on the expedition)
+    + {Team ? (Lars, Iris, Willy)} [...] Giorgio: What do you guys think?
+        Willy: What do you mean?
+        Giorgio: I mean, do you think this would be a good place to settle down?
+        Iris looks over at Lars.
+        Iris: I could get used to it here!
+        Lars looks back at Iris
+        Lars: It definitely seems like a viable option for people to come live!
+        Willy rolls his eyes at the love birds.
+        Willy: In terms of actual survivability, the atmosphere is breathable and the climate is similar to Earth’s with a good chance of being able to thrive off the land!
+        Giorgio seems satisfied with the responses the crew gave. 
+        Giorgio: Then it’s decided. We’re abandoning our mission and staying here. It’s time we break away from the stress and rigor with everything on Earth. Why not just kick back and try to thrive on our own off the land here?
+        The three on the expedition are easily convinced and they head back to the ship the alert the rest of the crew. -> Colonization

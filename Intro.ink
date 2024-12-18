@@ -44,10 +44,11 @@ Right as he finished his introduction, the older man let out a loud yawn.
             
 *   ->
 Captain Rebecca Monroe: "Wonderful I think that’s everyone! Let’s just quickly take an inventory and-”
+++ [PING]
 Rebecca's suddenly pings on, with the caller ID being from a woman named Winter Daniels. The woman who was responsible for gathering the crew for this project and the provider of the "wallet" for the mission. 
 Captain Rebecca Monroe: “Oh! Um… Hello Mrs. Daniels!”
 Winter Daniels: “Miss Monroe! Please tell me you have picked up the crew!”
 Captain Rebecca Monroe: “Uhh…y-yes! I was just getting them settled in now ma’am!”
 Winter Daniels: “Well hurry up! Time is money and you are wasting MINE!”
 Captain Rebecca Monroe: “Yes ma'am! Right away ma'am!”
-    ** [Get a Move On] -> Prologue
+*** [Get a Move On] -> Prologue

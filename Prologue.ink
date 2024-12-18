@@ -271,7 +271,6 @@ Breaking into the dark abyss, the Earth begins to trail behind them and the ship
 + Open Mission Brief
 There are three planets I’ve tasked your crew with researching: -> planets
 + Pick-a-Planet Module
-    {planetState}
     ** Regis-B
     ~ planetState ++
     //-> Setup(Planets)

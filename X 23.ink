@@ -185,6 +185,8 @@
     -> returning_to_ship
     
 == team_choice
+    {
+    - LIST_COUNT(Team) < 3:
     The Team Roster: {Team}    
         * [Captain Rebecca Monroe]
         //~Team += Rebecca
@@ -196,8 +198,7 @@
                 C: Yea! There’s a few things I should check out on the ship while the researchers are out!
             - else: Giorgio: I’m assuming you still need to stay on the ship, Rebecca? 
                 C: Yup! Gotta start getting the ship ready for the return trip!!
-            }
-
+            } -> team_choice
         * [Willy Richardson]
         ~Team += Willy
         	{
@@ -213,7 +214,7 @@
                 Giorgio: (mockingly) OK sergeant, I know your survival skills are high quality. The thick forest here seems like a perfect environment for you.
             - else: Giorgio: Willy, you think this planet is up your alley? It’s a cold, rocky, and barren planet but I think you’d be great at leading the field team around!
                 Willy: It’s still sergeant, but I’ll head out there and take charge! I’d love to show people the way around!!
-            }
+            } -> team_choice
         * [Iris Peacetree]
         ~Team += Iris
             {
@@ -223,7 +224,7 @@
                 Iris: I’ll try my best! I love desert plants!! {Team ? (Iris): -> hold_hands}
             - else: Giorgio: Iris, I don’t think you’ll be able to find much of anything here, but if you manage to find even residual plant matter I guess that will have to do.
                 Iris: I’ll try my best! I love desert plants!! {Team ? (Iris): -> cuddle}
-            }
+            } -> team_choice
         * [Lars Clarkson]
         ~Team += Lars
             {
@@ -233,7 +234,7 @@
 			    Lars: I’ll definitely keep my eyes open! Tracking animals in sand is typically pretty easy too!!
 			- else: Giorgio: Lars, the satellite data from this planet has recorded animal movement on the surface. See if you can find out what’s living here so we can figure out how it manages to live on a planet like this!
 			    Lars: I’ll definitely keep my eyes open! Tracking animals in sand is typically pretty easy too!! {Team ? (Iris): -> cuddle}
-			}
+			} -> team_choice
         * [Ridan Tyndale]
         ~Team += Ridan
         	{
@@ -246,20 +247,17 @@
     		- else: Giorgio: Ridan, this seems like a place you might want to visit.
                 Ridan groans but doesn’t have the willpower to fight back so he accepts his fate
 			    Ridan: Hot and dry… just how I like to sleep…
-    		}
+    		} -> team_choice
     	//{!Iris gets a bit more antsy and giddy. She desperately wants to explore the scenery of this foreign planet.|Iris gets even more antsy and can’t contain herself. It’s taking everything in her not to scream out.|Iris looks down sadly and looks as though she’s holding back tears.}
-    	-
-    	 
-    	{
-        - LIST_COUNT(Team) < 3: -> team_choice
-        - else: -> team_with
-        }
+    - else:
+    + [That makes three!] -> team_with
+    }
     = shared_smile
-        Lars and Iris glance at each other sharing a warm smile. ->DONE
+        Lars and Iris glance at each other sharing a warm smile. -> team_choice
     = hold_hands
-        Lars and Iris reach out to one another and hold hands. ->DONE
+        Lars and Iris reach out to one another and hold hands. -> team_choice
     = cuddle
-		 Lars and Iris link arms and cuddle up to one another. ->DONE
+		 Lars and Iris link arms and cuddle up to one another. -> team_choice
         {
         - LIST_COUNT(Team) < 3: -> team_choice
         - else: 
